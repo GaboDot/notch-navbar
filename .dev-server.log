@@ -7,3 +7,5 @@
 - Network:       http://10.0.1.11:3000
 ✓ Ready in 2.5s
 
+○ Compiling / ...
+ GET / 200 in 5.3s (next.js: 5.1s, application-code: 216ms)
