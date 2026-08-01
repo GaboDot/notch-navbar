@@ -1,0 +1,486 @@
+/* ========================================
+   Playground — NotchNavbar Interactive Demo
+   ======================================== */
+
+.pg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8ecf1 0%, #f0f2f5 50%, #e8ecf1 100%);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ────────────────────────────── */
+
+.pgHeader {
+  text-align: center;
+  padding: 24px 20px 8px;
+}
+
+.pgTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.5px;
+}
+
+/* ── Main layout ───────────────────────── */
+
+.pgMain {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  padding: 12px 24px 32px;
+  align-items: flex-start;
+  justify-content: center;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ── Controls panel ────────────────────── */
+
+.controls {
+  width: 280px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  @media (max-width: 900px) {
+    width: 100%;
+    max-width: 480px;
+    max-height: none;
+  }
+}
+
+.controlsTitle {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+/* ── Control groups ────────────────────── */
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.controlLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controlValue {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9ca3af;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Orientation toggle ────────────────── */
+
+.orientToggle {
+  display: flex;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.orientBtn {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease;
+  background: #f9fafb;
+  color: #6b7280;
+
+  &.orientBtnActive {
+    background: #007aff;
+    color: #fff;
+  }
+}
+
+/* ── Color picker row ──────────────────── */
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorInput {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 2px;
+  }
+
+  &::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+.colorHex {
+  font-size: 12px;
+  font-family: 'Geist Mono', monospace, monospace;
+  color: #6b7280;
+}
+
+/* ── Slider ────────────────────────────── */
+
+.slider {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e5e7eb;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #007aff;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #007aff;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ── Tab count buttons ─────────────────── */
+
+.tabCountRow {
+  display: flex;
+  gap: 6px;
+}
+
+.tabCountBtn {
+  flex: 1;
+  padding: 6px 0;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  background: #f9fafb;
+  color: #6b7280;
+
+  &.tabCountBtnActive {
+    background: #007aff;
+    color: #fff;
+    border-color: #007aff;
+  }
+}
+
+/* ── Active tab log ────────────────────── */
+
+.activeLog {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #166534;
+}
+
+.activeLogDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+/* ── Preview area ──────────────────────── */
+
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Phone frame (horizontal) ──────────── */
+
+.phoneFrame {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.08),
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.3);
+  background: #f8f9fa;
+}
+
+.phoneScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tablet frame (vertical) ───────────── */
+
+.tabletFrame {
+  position: relative;
+  width: 640px;
+  height: 880px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.08),
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.3);
+  background: #f8f9fa;
+}
+
+.tabletScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Status bar ────────────────────────── */
+
+.statusBar {
+  height: 54px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 28px 8px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+}
+
+.statusTime {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.statusIcons {
+  display: flex;
+  gap: 5px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: #1f2937;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+}
+
+/* ── App header ────────────────────────── */
+
+.appHeader {
+  padding: 4px 20px 16px;
+  flex-shrink: 0;
+}
+
+.appHeaderTitle {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1f2937;
+}
+
+.appHeaderSub {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ── App content (scrollable) ──────────── */
+
+.appContent {
+  flex: 1;
+  padding: 0 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 90px;
+  background: #f0f2f5;
+}
+
+.appContentSidebar {
+  composes: appContent;
+  padding-bottom: 24px;
+}
+
+/* ── Sidebar app area ──────────────────── */
+
+.sidebarAppArea {
+  position: absolute;
+  left: 110px;
+  top: 54px;
+  right: 0;
+  bottom: 0;
+  background: #f0f2f5;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 16px 24px 24px 0;
+}
+
+.sidebarAppHeader {
+  padding: 4px 0 16px;
+}
+
+.sidebarAppHeaderTitle {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1f2937;
+}
+
+.sidebarAppHeaderSub {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* ── Cards ─────────────────────────────── */
+
+.cardBanner {
+  background: linear-gradient(135deg, #007aff, #8b5cf6);
+  border-radius: 14px;
+  padding: 18px;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.cardBannerTitle {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.cardBannerDesc {
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.cardLabel {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #007aff;
+  margin-bottom: 6px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.cardDesc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.cardStat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.cardStatValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.cardStatUnit {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── Home indicator ────────────────────── */
+
+.homeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 5px;
+  border-radius: 3px;
+  background: #1f2937;
+  opacity: 0.15;
+  z-index: 110;
+}
+
+/* ── Divider ───────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 4px 0;
+}

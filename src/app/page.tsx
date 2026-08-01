@@ -1,119 +1,373 @@
 'use client';
 
+import { useState, useCallback, useMemo } from 'react';
 import {
   Home,
   Search,
   ShoppingCart,
   Settings,
   User,
+  Wifi,
+  Bell,
+  Battery,
 } from 'lucide-react';
 import { NotchNavbar } from '@/components/notch-navbar/notch-navbar';
-import type { NotchTab } from '@/lib/notch/types';
+import type { NotchTab, Orientation } from '@/lib/notch/types';
+import { DEFAULT_COLORS, DURATION_DEFAULT, NOTCH_GAP, CORNER_RADIUS } from '@/lib/notch/constants';
+import styles from './playground.module.scss';
 
-const tabs: NotchTab[] = [
-  { name: 'Home', activeIcon: <Home size={24} />, inactiveIcon: <Home size={24} /> },
-  { name: 'Search', activeIcon: <Search size={24} />, inactiveIcon: <Search size={24} /> },
-  { name: 'Cart', activeIcon: <ShoppingCart size={24} />, inactiveIcon: <ShoppingCart size={24} /> },
-  { name: 'Settings', activeIcon: <Settings size={24} />, inactiveIcon: <Settings size={24} /> },
-  { name: 'Profile', activeIcon: <User size={24} />, inactiveIcon: <User size={24} /> },
-];
+/* ── Icon sets ─────────────────────────────────────────────────────── */
 
-export default function SmokePage() {
+const ALL_ICONS = [
+  { name: 'Home', Icon: Home },
+  { name: 'Search', Icon: Search },
+  { name: 'Cart', Icon: ShoppingCart },
+  { name: 'Settings', Icon: Settings },
+  { name: 'Profile', Icon: User },
+] as const;
+
+/* ── Helpers ───────────────────────────────────────────────────────── */
+
+function makeTabs(count: number): NotchTab[] {
+  return ALL_ICONS.slice(0, count).map(({ name, Icon }) => ({
+    name,
+    activeIcon: <Icon size={24} stroke="currentColor" />,
+    inactiveIcon: <Icon size={24} stroke="currentColor" />,
+  }));
+}
+
+/* ── Status bar SVGs ───────────────────────────────────────────────── */
+
+function StatusBar() {
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #E8ECF1 0%, #F0F2F5 50%, #E8ECF1 100%)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-      }}
-    >
-      <h1
-        style={{
-          fontSize: 15,
-          fontWeight: 600,
-          color: 'rgba(0,0,0,0.35)',
-          letterSpacing: 0.5,
-          marginBottom: 20,
-        }}
-      >
-        NotchNavbar — Smoke Test
-      </h1>
+    <div className={styles.statusBar}>
+      <span className={styles.statusTime}>9:41</span>
+      <div className={styles.statusIcons}>
+        <Wifi />
+        <Bell />
+        <Battery />
+      </div>
+    </div>
+  );
+}
 
-      <div
-        style={{
-          position: 'relative',
-          width: 390,
-          height: 844,
-          borderRadius: 32,
-          overflow: 'hidden',
-          boxShadow:
-            '0 0 0 2px rgba(255,255,255,0.08), 0 25px 60px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.3)',
-          background: '#F8F9FA',
-        }}
-      >
-        {/* Content area */}
-        <div style={{ padding: '60px 20px 100px' }}>
-          <div
-            style={{
-              background: 'linear-gradient(135deg, #007AFF, #8B5CF6)',
-              borderRadius: 14,
-              padding: 18,
-              color: '#FFF',
-              marginBottom: 14,
-            }}
-          >
-            <div style={{ fontSize: 17, fontWeight: 700, marginBottom: 3 }}>
-              Animated Notch Nav
-            </div>
-            <div style={{ fontSize: 13, opacity: 0.9, lineHeight: 1.4 }}>
-              SVG semicircular cutout + circle notch with crescent gap. Tap tabs.
-            </div>
-          </div>
+/* ── Shared card content ───────────────────────────────────────────── */
 
-          {[1, 2, 3].map((n) => (
-            <div
-              key={n}
-              style={{
-                background: '#FFFFFF',
-                border: '1px solid #E5E7EB',
-                borderRadius: 14,
-                padding: 18,
-                marginBottom: 14,
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: 0.8,
-                  color: '#007AFF',
-                  marginBottom: 6,
-                }}
-              >
-                Card {n}
-              </div>
-              <div style={{ fontSize: 16, fontWeight: 600, color: '#1F2937' }}>
-                Sample Content
-              </div>
-              <div style={{ fontSize: 13, color: '#6B7280', lineHeight: 1.5, marginTop: 4 }}>
-                Scroll content behind the navbar.
-              </div>
-            </div>
-          ))}
+function CardContent() {
+  return (
+    <>
+      <div className={styles.cardBanner}>
+        <div className={styles.cardBannerTitle}>Animated Notch Nav</div>
+        <div className={styles.cardBannerDesc}>
+          SVG semicircular cutout + circle notch with crescent gap. Tap tabs.
         </div>
+      </div>
+      <div className={styles.card}>
+        <div className={styles.cardLabel}>Analytics</div>
+        <div className={styles.cardTitle}>Weekly Performance</div>
+        <div className={styles.cardDesc}>Active users up 12% vs last week.</div>
+        <div className={styles.cardStat}>
+          <span className={styles.cardStatValue}>2,847</span>
+          <span className={styles.cardStatUnit}>users</span>
+        </div>
+      </div>
+      <div className={styles.card}>
+        <div className={styles.cardLabel}>Revenue</div>
+        <div className={styles.cardTitle}>Monthly Recurring</div>
+        <div className={styles.cardDesc}>Subscription revenue trending upward.</div>
+        <div className={styles.cardStat}>
+          <span className={styles.cardStatValue}>$18.4k</span>
+          <span className={styles.cardStatUnit}>MRR</span>
+        </div>
+      </div>
+    </>
+  );
+}
 
-        {/* NotchNavbar */}
+/* ── Playground ────────────────────────────────────────────────────── */
+
+export default function PlaygroundPage() {
+  /* ── State ─────────────────────────────────────────────────────── */
+
+  const [orientation, setOrientation] = useState<Orientation>('horizontal');
+  const [activeIconColor, setActiveIconColor] = useState<string>(DEFAULT_COLORS.activeIconColor);
+  const [inactiveIconColor, setInactiveIconColor] = useState<string>(DEFAULT_COLORS.inactiveIconColor);
+  const [circleFillColor, setCircleFillColor] = useState<string>(DEFAULT_COLORS.circleFillColor);
+  const [barBackground, setBarBackground] = useState<string>(DEFAULT_COLORS.barBackground);
+  const [notchGap, setNotchGap] = useState(NOTCH_GAP);
+  const [cornerRadius, setCornerRadius] = useState(CORNER_RADIUS);
+  const [transitionSpeed, setTransitionSpeed] = useState(DURATION_DEFAULT);
+  const [tabCount, setTabCount] = useState(4);
+  const [tabSize, setTabSize] = useState(0);
+  const [activeTabName, setActiveTabName] = useState('Home');
+
+  /* ── Memoized tabs ─────────────────────────────────────────────── */
+
+  const tabs = useMemo(() => makeTabs(tabCount), [tabCount]);
+
+  /* ── Callbacks ─────────────────────────────────────────────────── */
+
+  const handleTabChange = useCallback((tab: NotchTab) => {
+    setActiveTabName(tab.name);
+  }, []);
+
+  /* ── Preview: horizontal (phone) ───────────────────────────────── */
+
+  const horizontalPreview = (
+    <div className={styles.phoneFrame}>
+      <div className={styles.phoneScreen}>
+        <StatusBar />
+        <div className={styles.appHeader}>
+          <h1 className={styles.appHeaderTitle}>Dashboard</h1>
+          <p className={styles.appHeaderSub}>Welcome back</p>
+        </div>
+        <div className={styles.appContent}>
+          <CardContent />
+        </div>
         <NotchNavbar
           tabs={tabs}
           orientation="horizontal"
-          onTabChange={(tab, index) => console.log('Tab changed:', tab.name, index)}
+          activeIconColor={activeIconColor}
+          inactiveIconColor={inactiveIconColor}
+          circleFillColor={circleFillColor}
+          barBackground={barBackground}
+          cornerRadius={cornerRadius}
+          notchGap={notchGap}
+          transitionSpeed={transitionSpeed}
+          containerBottomSpace={0}
+          onTabChange={handleTabChange}
         />
+        <div className={styles.homeIndicator} />
+      </div>
+    </div>
+  );
+
+  /* ── Preview: vertical (tablet) ────────────────────────────────── */
+
+  const verticalPreview = (
+    <div className={styles.tabletFrame}>
+      <div className={styles.tabletScreen}>
+        <StatusBar />
+        <NotchNavbar
+          tabs={tabs}
+          orientation="vertical"
+          activeIconColor={activeIconColor}
+          inactiveIconColor={inactiveIconColor}
+          circleFillColor={circleFillColor}
+          barBackground={barBackground}
+          cornerRadius={cornerRadius}
+          notchGap={notchGap}
+          transitionSpeed={transitionSpeed}
+          tabSize={tabSize || undefined}
+          onTabChange={handleTabChange}
+        />
+        <div className={styles.sidebarAppArea}>
+          <div className={styles.sidebarAppHeader}>
+            <h1 className={styles.sidebarAppHeaderTitle}>Dashboard</h1>
+            <p className={styles.sidebarAppHeaderSub}>Welcome back</p>
+          </div>
+          <CardContent />
+        </div>
+      </div>
+    </div>
+  );
+
+  /* ── Render ────────────────────────────────────────────────────── */
+
+  return (
+    <div className={styles.pg}>
+      <div className={styles.pgHeader}>
+        <span className={styles.pgTitle}>NotchNavbar — Interactive Playground</span>
+      </div>
+
+      <div className={styles.pgMain}>
+        {/* Controls */}
+        <div className={styles.controls}>
+          <span className={styles.controlsTitle}>Controls</span>
+
+          {/* Orientation */}
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>Orientation</span>
+            <div className={styles.orientToggle}>
+              <button
+                className={`${styles.orientBtn} ${orientation === 'horizontal' ? styles.orientBtnActive : ''}`}
+                onClick={() => setOrientation('horizontal')}
+              >
+                Horizontal
+              </button>
+              <button
+                className={`${styles.orientBtn} ${orientation === 'vertical' ? styles.orientBtnActive : ''}`}
+                onClick={() => setOrientation('vertical')}
+              >
+                Vertical
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.divider} />
+
+          {/* Colors */}
+          <span className={styles.controlsTitle}>Colors</span>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>Active Icon</span>
+            <div className={styles.colorRow}>
+              <input
+                type="color"
+                className={styles.colorInput}
+                value={activeIconColor}
+                onChange={(e) => setActiveIconColor(e.target.value)}
+              />
+              <span className={styles.colorHex}>{activeIconColor}</span>
+            </div>
+          </div>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>Inactive Icon</span>
+            <div className={styles.colorRow}>
+              <input
+                type="color"
+                className={styles.colorInput}
+                value={inactiveIconColor}
+                onChange={(e) => setInactiveIconColor(e.target.value)}
+              />
+              <span className={styles.colorHex}>{inactiveIconColor}</span>
+            </div>
+          </div>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>Circle Fill</span>
+            <div className={styles.colorRow}>
+              <input
+                type="color"
+                className={styles.colorInput}
+                value={circleFillColor}
+                onChange={(e) => setCircleFillColor(e.target.value)}
+              />
+              <span className={styles.colorHex}>{circleFillColor}</span>
+            </div>
+          </div>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>Bar Background</span>
+            <div className={styles.colorRow}>
+              <input
+                type="color"
+                className={styles.colorInput}
+                value={barBackground}
+                onChange={(e) => setBarBackground(e.target.value)}
+              />
+              <span className={styles.colorHex}>{barBackground}</span>
+            </div>
+          </div>
+
+          <div className={styles.divider} />
+
+          {/* Geometry */}
+          <span className={styles.controlsTitle}>Geometry</span>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>
+              Notch Gap
+              <span className={styles.controlValue}>{notchGap}px</span>
+            </span>
+            <input
+              type="range"
+              className={styles.slider}
+              min={4}
+              max={14}
+              step={1}
+              value={notchGap}
+              onChange={(e) => setNotchGap(Number(e.target.value))}
+            />
+          </div>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>
+              Corner Radius
+              <span className={styles.controlValue}>{cornerRadius}px</span>
+            </span>
+            <input
+              type="range"
+              className={styles.slider}
+              min={0}
+              max={20}
+              step={1}
+              value={cornerRadius}
+              onChange={(e) => setCornerRadius(Number(e.target.value))}
+            />
+          </div>
+
+          <div className={styles.divider} />
+
+          {/* Behavior */}
+          <span className={styles.controlsTitle}>Behavior</span>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>
+              Transition Speed
+              <span className={styles.controlValue}>{transitionSpeed}ms</span>
+            </span>
+            <input
+              type="range"
+              className={styles.slider}
+              min={200}
+              max={600}
+              step={50}
+              value={transitionSpeed}
+              onChange={(e) => setTransitionSpeed(Number(e.target.value))}
+            />
+          </div>
+
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>Tab Count</span>
+            <div className={styles.tabCountRow}>
+              {[3, 4, 5].map((n) => (
+                <button
+                  key={n}
+                  className={`${styles.tabCountBtn} ${tabCount === n ? styles.tabCountBtnActive : ''}`}
+                  onClick={() => {
+                    setTabCount(n);
+                    setActiveTabName(ALL_ICONS[0].name);
+                  }}
+                >
+                  {n}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {orientation === 'vertical' && (
+            <div className={styles.controlGroup}>
+              <span className={styles.controlLabel}>
+                Tab Size (vertical)
+                <span className={styles.controlValue}>{tabSize === 0 ? 'auto' : `${tabSize}px`}</span>
+              </span>
+              <input
+                type="range"
+                className={styles.slider}
+                min={0}
+                max={60}
+                step={1}
+                value={tabSize}
+                onChange={(e) => setTabSize(Number(e.target.value))}
+              />
+            </div>
+          )}
+
+          <div className={styles.divider} />
+
+          {/* Active tab indicator */}
+          <div className={styles.activeLog}>
+            <span className={styles.activeLogDot} />
+            Active: {activeTabName}
+          </div>
+        </div>
+
+        {/* Preview */}
+        <div className={styles.preview}>
+          {orientation === 'horizontal' ? horizontalPreview : verticalPreview}
+        </div>
       </div>
     </div>
   );
