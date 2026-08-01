@@ -56,4 +56,10 @@ export interface NotchNavbarProps {
   containerBottomSpace?: number;
   /** Extra className on root element */
   className?: string;
+  /**
+   * Fixed tab slot size (px). When provided, each tab occupies exactly this
+   * width (horizontal) or height (vertical) and gaps are equal between them.
+   * When omitted, tabs fill the bar evenly (flex: 1).
+   */
+  tabSize?: number;
 }
