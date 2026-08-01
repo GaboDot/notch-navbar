@@ -1,0 +1,34 @@
+{
+  "project": "NotchNavbar",
+  "description": "Componente reutilizable Next.js/React: tab bar inferior con notch SVG deslizante y FAB circular, port de Mindinventory/react-native-tabbar-interaction",
+  "root": "F:\\Develop\\NotchNavbar",
+  "created_at": "2026-08-01T00:00:00Z",
+  "model_mode": "gratuito",
+  "stack": "Next.js 15 + TypeScript + SCSS, framer-motion, d3-shape, d3-interpolate-path, lucide-react, Vitest",
+  "architecture": "Componente UI client-only ('use client') + librería de paths TS pura + demo App Router",
+  "scope": "Prototipo (Frontend-design, Frontend, Testing, Documentation)",
+  "status": "mockups_approved",
+  "resume_step": "fase-1-scaffold",
+  "graphify": {
+    "initialized": false
+  },
+  "iterations": [
+    {
+      "area": "frontend-design",
+      "model_used": "opencode-go/mimo-v2.5-pro",
+      "status": "completed",
+      "started_at": "2026-08-01T00:00:00Z",
+      "completed_at": "2026-08-01T01:00:00Z",
+      "output_files": [
+        "Specs/frontend-design-spec.md",
+        "Specs/mockup/notch-navbar-mockup.html",
+        "Specs/mockup/notch-sidebar-mockup.html"
+      ],
+      "doubts": [
+        { "q": "Soporte Link de Next.js o solo onTabChange?", "priority": "high", "resolved": "onTabChange + href opcional" },
+        { "q": "d3-shape o pre-computar paths?", "priority": "high", "resolved": "d3-shape + d3-interpolate-path" }
+      ],
+      "notes": "DOS mockups aprobados. Horizontal (navbar): recorte circular concéntrico (arco A sweep=0, rc=CIRCLE_R+7, centro y=6, gap 7px), fillet esquinas (phi=alpha+4°), PAD 8px lateral, bar blanco puro #FFFFFF 56px flush bottom radios 10/10, bisel 3D (highlight blanco 0.95 1.5px + sombra difusa translateY(3px) blur2 alpha 0.07), sombra círculo pegada, app-content #F0F2F5, sin dark/glow/theme. Vertical (sidebar): misma geometría rotada 90° (borde derecho, espejo x→SW−x, arco sweep=1→0, círculo sobresale derecha 22px), full-height 790px flush left, tabs compactos 60px+gap8 con header/footer, bisel 3D con translateX(3px), app-area #F0F2F5. Lecciones: curva original = curveBasis d3-shape (prof. 44.6 asimétrica); sweep flags verificados empíricamente (horiz: 1=arriba, 0=abajo; rotado: 1=derecha, espejado 0=izquierda); bisel 3D = highlight nítido + sombra difusa (no línea paralela)."
+    }
+  ]
+}
