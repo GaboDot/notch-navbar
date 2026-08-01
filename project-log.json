@@ -7,10 +7,20 @@
   "stack": "Next.js 15 + TypeScript + SCSS, framer-motion, d3-shape, d3-interpolate-path, lucide-react, Vitest",
   "architecture": "Componente UI client-only ('use client') + librería de paths TS pura + demo App Router",
   "scope": "Prototipo (Frontend-design, Frontend, Testing, Documentation)",
-  "status": "mockups_approved",
-  "resume_step": "fase-1-scaffold",
+  "status": "completed",
+  "resume_step": null,
   "graphify": {
-    "initialized": false
+    "initialized": true,
+    "last_update": "2026-08-01T00:00:00Z",
+    "nodes": 147,
+    "edges": 181,
+    "communities": 12
+  },
+  "summary": {
+    "total_time_seconds": 5400,
+    "models_used": ["opencode-go/mimo-v2.5-pro", "opencode-go/mimo-v2.5"],
+    "total_doubts": 2,
+    "resolved_doubts": 2
   },
   "iterations": [
     {
