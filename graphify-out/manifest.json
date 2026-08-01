@@ -1,0 +1,82 @@
+{
+  "eslint.config.mjs": {
+    "mtime": 1785618828.455681,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "next.config.ts": {
+    "mtime": 1785618838.45387,
+    "ast_hash": "073c476be067d6d4649b355483ee2690",
+    "semantic_hash": "073c476be067d6d4649b355483ee2690"
+  },
+  "package.json": {
+    "mtime": 1785620471.3540907,
+    "ast_hash": "3ddbf005cc5fffcf1bfc1bf1b13f6867",
+    "semantic_hash": "3ddbf005cc5fffcf1bfc1bf1b13f6867"
+  },
+  "project-log.json": {
+    "mtime": 1785618577.0067244,
+    "ast_hash": "4b37e49a4dce4feefc77d1a3a8eca1c2",
+    "semantic_hash": "4b37e49a4dce4feefc77d1a3a8eca1c2"
+  },
+  "src/app/layout.tsx": {
+    "mtime": 1785618828.5404608,
+    "ast_hash": "a219a12cc24cc5beabe9ad105ed66f83",
+    "semantic_hash": "a219a12cc24cc5beabe9ad105ed66f83"
+  },
+  "src/app/page.tsx": {
+    "mtime": 1785620239.6251755,
+    "ast_hash": "afbc0c8f6af1428b450541c4b87893e7",
+    "semantic_hash": "afbc0c8f6af1428b450541c4b87893e7"
+  },
+  "src/components/notch-navbar/notch-navbar.tsx": {
+    "mtime": 1785621088.0801384,
+    "ast_hash": "c76db4e4ecc8e2887a21593ddb3c8182",
+    "semantic_hash": "c76db4e4ecc8e2887a21593ddb3c8182"
+  },
+  "src/lib/notch/__tests__/constants.test.ts": {
+    "mtime": 1785620491.7193978,
+    "ast_hash": "0638ea117ead7061b383f1b31037f812",
+    "semantic_hash": "0638ea117ead7061b383f1b31037f812"
+  },
+  "src/lib/notch/__tests__/notch-navbar.test.tsx": {
+    "mtime": 1785620614.1730897,
+    "ast_hash": "73698c85d4bac28a7bdcfa90e30b0974",
+    "semantic_hash": "73698c85d4bac28a7bdcfa90e30b0974"
+  },
+  "src/lib/notch/__tests__/paths.test.ts": {
+    "mtime": 1785621165.6027107,
+    "ast_hash": "fa7e4da478c03d5377bd5cb3ee7b718d",
+    "semantic_hash": "fa7e4da478c03d5377bd5cb3ee7b718d"
+  },
+  "src/lib/notch/constants.ts": {
+    "mtime": 1785619371.4539857,
+    "ast_hash": "cd136c6066bde39b3811694efc50f614",
+    "semantic_hash": "cd136c6066bde39b3811694efc50f614"
+  },
+  "src/lib/notch/paths.ts": {
+    "mtime": 1785621093.0092106,
+    "ast_hash": "8cbf24be774463836a54248307e222e6",
+    "semantic_hash": "8cbf24be774463836a54248307e222e6"
+  },
+  "src/lib/notch/types.ts": {
+    "mtime": 1785619727.8599062,
+    "ast_hash": "65e895a91889af837cdc6f6551837f60",
+    "semantic_hash": "65e895a91889af837cdc6f6551837f60"
+  },
+  "src/test/setup.ts": {
+    "mtime": 1785620474.1143599,
+    "ast_hash": "93ab7f933bc404910d0f792a4b3b06d5",
+    "semantic_hash": "93ab7f933bc404910d0f792a4b3b06d5"
+  },
+  "tsconfig.json": {
+    "mtime": 1785618838.4623866,
+    "ast_hash": "ee17fd1c97c735e9f3564e3f5251f125",
+    "semantic_hash": "ee17fd1c97c735e9f3564e3f5251f125"
+  },
+  "vitest.config.mts": {
+    "mtime": 1785620710.4092977,
+    "ast_hash": "38d225751c6fffd4b7f11a495a7f12d8",
+    "semantic_hash": "38d225751c6fffd4b7f11a495a7f12d8"
+  }
+}

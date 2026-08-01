@@ -4,6 +4,7 @@ import {
   useRef,
   useState,
   useEffect,
+  useLayoutEffect,
   useCallback,
 } from 'react';
 import Link from 'next/link';
@@ -16,7 +17,6 @@ import {
   getTabPositions,
 } from '@/lib/notch/paths';
 import {
-  CIRCLE_R,
   CENTER_OFFSET,
   PAD,
   DURATION_DEFAULT,
@@ -32,8 +32,9 @@ import styles from './notch-navbar.module.scss';
 
 function useStableCallback<T extends (...args: never[]) => void>(cb?: T): T {
   const ref = useRef(cb);
-  ref.current = cb;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => {
+    ref.current = cb;
+  });
   return useCallback((...args: Parameters<T>) => {
     ref.current?.(...args);
   }, []) as T;
@@ -92,7 +93,10 @@ export function NotchNavbar({
   const animatingRef = useRef(false);
   const currentPosRef = useRef(0);
   const activeIndexRef = useRef(activeIndex);
-  activeIndexRef.current = activeIndex;
+
+  useLayoutEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
 
   /* ── Stable onTabChange ───────────────────────────────────────── */
 

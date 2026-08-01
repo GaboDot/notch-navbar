@@ -2,7 +2,7 @@
 
 Animated tab bar / sidebar component for React and Next.js with a sliding SVG semicircular notch cutout, concentric circle indicator, and cubic-bezier fillets.
 
-Port of the [Mindinventory react-native-tabbar-interaction](https://github.com/nicedoc/react-native-tabbar-interaction) concept to the web — pure SVG geometry, no canvas, no raster assets.
+Port of the [Mindinventory react-native-tabbar-interaction](https://github.com/Mindinventory/react-native-tabbar-interaction) concept to the web — pure SVG geometry, no canvas, no raster assets.
 
 ## Features
 
@@ -254,7 +254,7 @@ When `containerWidth` / `containerHeight` are not provided, the component uses `
 
 ## Credits
 
-Inspired by [Mindinventory/react-native-tabbar-interaction](https://github.com/nicedoc/react-native-tabbar-interaction) (MIT License). Rewritten from scratch for React/Next.js with pure SVG geometry.
+Inspired by [Mindinventory/react-native-tabbar-interaction](https://github.com/Mindinventory/react-native-tabbar-interaction) (MIT License). Rewritten from scratch for React/Next.js with pure SVG geometry.
 
 ## License
 

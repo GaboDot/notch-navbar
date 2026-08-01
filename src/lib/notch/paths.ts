@@ -13,7 +13,7 @@
  *   - Vertical paths mirror x → SW-x so cutout sits on the RIGHT (internal) edge
  */
 
-import { CORNER_RADIUS, CENTER_OFFSET, EXP_O, ARC_TAN } from './constants';
+import { CORNER_RADIUS, EXP_O, ARC_TAN } from './constants';
 
 // ─── Horizontal helpers ───────────────────────────────────────────────────────
 

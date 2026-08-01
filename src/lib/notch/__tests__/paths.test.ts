@@ -32,7 +32,9 @@ function subpathStarts(d: string): [number, number][] {
     .slice(1)
     .map((seg) => {
       const n = seg.match(/-?\d+\.?\d*/g) ?? [];
-      return [parseFloat(n[0]), parseFloat(n[1])];
+      const x = n[0] ? parseFloat(n[0]) : 0;
+      const y = n[1] ? parseFloat(n[1]) : 0;
+      return [x, y];
     });
 }
 
