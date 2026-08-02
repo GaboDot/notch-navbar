@@ -411,6 +411,28 @@ Both trace the top/right edge of the bar including the cutout shape.
 
 When `containerWidth` / `containerHeight` are not provided, the component uses `ResizeObserver` on its root `<nav>` element to recompute geometry when the container resizes. Tab positions are recalculated and the circle animates to the new position.
 
+## Publishing / CI
+
+### How to publish a new version
+
+```bash
+# 1. Bump version (patch, minor, or major)
+npm version patch   # or: minor, major
+
+# 2. Push the tag — CI auto-publishes to npm
+git push --follow-tags
+```
+
+The `publish.yml` workflow triggers on any `v*` tag push. It runs lint, tests (92 tests, 100% coverage), type-checks, and builds before publishing to npm.
+
+### Required secret
+
+| Secret | Description |
+|--------|-------------|
+| `NPM_TOKEN` | Granular npm access token with read/write publish permissions (2FA bypass enabled). Add it at **Settings → Secrets and variables → Actions → New repository secret**. |
+
+A `ci.yml` workflow also runs on every push to `main`/`develop` and on PRs (lint + test + type-check + build, no publish).
+
 ## Credits
 
 Inspired by [Mindinventory/react-native-tabbar-interaction](https://github.com/Mindinventory/react-native-tabbar-interaction) (MIT License). Rewritten from scratch for React/Next.js with pure SVG geometry.
