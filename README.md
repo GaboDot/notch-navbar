@@ -1,5 +1,10 @@
 # NotchNavbar
 
+[![npm version](https://img.shields.io/npm/v/notch-navbar.svg)](https://www.npmjs.com/package/notch-navbar)
+[![npm downloads](https://img.shields.io/npm/dm/notch-navbar.svg)](https://www.npmjs.com/package/notch-navbar)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](package.json)
+
 Animated tab bar / sidebar component for React and Next.js with a sliding SVG semicircular notch cutout, concentric circle indicator, and cubic-bezier fillets.
 
 Port of the [Mindinventory react-native-tabbar-interaction](https://github.com/Mindinventory/react-native-tabbar-interaction) concept to the web — pure SVG geometry, no canvas, no raster assets.

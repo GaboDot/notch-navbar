@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "description": "Animated tab bar / sidebar with sliding SVG notch cutout + concentric circle indicator for React/Next.js",
   "license": "MIT",
-  "author": "NotchNavbar contributors",
+  "author": "gabodot",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/notchnavbar/notch-navbar.git"
+    "url": "git+https://github.com/GaboDot/notch-navbar.git"
   },
+  "homepage": "https://github.com/GaboDot/notch-navbar#readme",
   "keywords": [
     "notch",
     "navbar",
