@@ -28,7 +28,7 @@
       "model_used": "opencode-go/mimo-v2.5-pro",
   "status": "completed",
   "published": {
-    "npm": "notch-navbar@0.1.1",
+    "npm": "notch-navbar@0.1.2",
     "npm_url": "https://www.npmjs.com/package/notch-navbar",
     "github": "https://github.com/GaboDot/notch-navbar",
     "published_at": "2026-08-02T00:42:00Z",
