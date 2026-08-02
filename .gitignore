@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Specs (no versionados por convenci�n)
 Specs/
+
+# Dev server log
+.dev-server.log
