@@ -32,6 +32,9 @@ Port of the [Mindinventory react-native-tabbar-interaction](https://github.com/M
 - **Cubic fillets** — smooth bezier transitions from flat bar edge to the arc, no jagged corners
 - **Bevel / 3D effect** — white highlight stroke + blurred shadow stroke for depth
 - **Dual orientation** — bottom tab bar (`horizontal`) or side sidebar (`vertical`)
+- **RTL support** — `dir="rtl"` mirrors horizontal tabs/arrows and flips the vertical sidebar to the right with mirrored `VRTL` geometry
+- **Tab labels** — optional `showLabels` renders each inactive tab's `name` below its icon (10px, inactive color, 70% opacity)
+- **Safe-area insets** — `topSpace` / `bottomSpace` clear the device status bar, Dynamic Island, and home indicator in vertical mode
 - **Dynamic menus** — auto-scales geometry when 7–10+ tabs; overflow tabs collapse into a "More" popover card
 - **Keyboard accessible** — roving tabindex, arrow keys, Home/End, Enter/Space; popover uses menu/menuitem roles
 - **Reduced motion** — respects `prefers-reduced-motion: reduce`
@@ -118,6 +121,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 | `containerHeight` | `number \| undefined` | `undefined` | Fixed height in px for vertical mode. Omit for fluid height via `ResizeObserver`. |
 | `containerBottomSpace` | `number` | `0` | Bottom inset in px for horizontal mode (safe area offset). |
 | `tabSize` | `number \| undefined` | `undefined` | Fixed tab slot size in px. When set, each tab occupies exactly this width/height with equal gaps. When omitted, tabs fill the bar evenly (`flex: 1`). |
+| `dir` | `'ltr' \| 'rtl'` | `'ltr'` | Text direction. `'rtl'` mirrors the layout: horizontal tabs render reversed (first tab on the right) with inverted arrow keys; vertical sidebar moves to the **right** edge with the notch on its **left** (inner) edge. Icon mirroring is **not** handled — flip icons via CSS `transform: scaleX(-1)` or pre-flipped SVGs. |
+| `showLabels` | `boolean` | `false` | When `true`, each inactive tab shows its `name` below the icon inside the bar (10px, inactive icon color at 70% opacity, centered). Applies to horizontal and vertical; the "More" tab never shows a label (its overflow card always lists names). |
+| `topSpace` | `number` | `0` | Top inset in px for the **vertical** sidebar only. Clears the device status bar / Dynamic Island. Ignored in horizontal mode. |
+| `bottomSpace` | `number` | `0` | Bottom inset in px for the **vertical** sidebar only. Clears the home indicator area on notched phones. Ignored in horizontal mode. |
 | `className` | `string \| undefined` | `undefined` | Extra CSS class applied to the root `<nav>` element. |
 
 ### NotchTab
@@ -187,6 +194,53 @@ SVG geometry: `barPathV` → rounded rect with `evenodd` cutout on right. `bevel
 ### tabSize (vertical compact mode)
 
 For vertical sidebars, `tabSize` lets you constrain each tab slot to a fixed pixel size instead of filling the sidebar height evenly. Useful for sidebars with few tabs that shouldn't spread across the full height.
+
+## RTL — `dir="rtl"`
+
+Set `dir="rtl"` to mirror the entire layout for right-to-left languages. Icon glyphs are **not** flipped automatically — the consumer decides via CSS `transform: scaleX(-1)` or pre-flipped icons.
+
+### Horizontal (RTL)
+
+- Tabs render **reversed**: the first tab sits on the **right**, the last on the **left** (positions mirrored: `pos → containerWidth − pos`).
+- The notch/circle track the mirrored positions and slide right-to-left.
+- Arrow keys are **inverted**: `←` moves to the next tab, `→` moves to the previous.
+
+### Vertical (RTL)
+
+- The sidebar positions on the **right** edge of the viewport (`right: 0` instead of `left: 0`).
+- The notch sits on the **left** edge of the sidebar (the inner edge facing the content), mirroring the LTR layout where the notch is on the right.
+- Geometry uses the mirrored `barPathVRTL` / `bevelPathVRTL` path generators.
+
+## Labels — `showLabels`
+
+When `showLabels={true}`, every inactive tab renders its `name` as a small label **below the icon**, inside the bar:
+
+- **10px** font, the inactive icon color (`inactiveIconColor`), **opacity 0.7**, centered under the icon.
+- Applies to both horizontal and vertical orientations.
+- Ellipsized when the slot is too narrow (`white-space: nowrap`, `text-overflow: ellipsis`).
+- **Not** applied to the "More" tab — the More button shows only its icon. Overflow tabs in the More card always display their names regardless of this prop.
+
+```tsx
+<NotchNavbar tabs={tabs} showLabels orientation="vertical" />
+```
+
+## Safe-area — `topSpace` / `bottomSpace` (vertical only)
+
+`topSpace` and `bottomSpace` add vertical insets to the **vertical sidebar only** (ignored in horizontal mode):
+
+- `topSpace` — pushes the sidebar down from `top: 0`. Use it to clear the device **status bar** or **Dynamic Island**.
+- `bottomSpace` — stops the sidebar above `bottom: 0`. Use it to clear the **home indicator** on notched phones.
+
+```tsx
+<NotchNavbar
+  tabs={tabs}
+  orientation="vertical"
+  topSpace={44}    // clears the status bar / Dynamic Island
+  bottomSpace={34} // clears the home indicator
+/>
+```
+
+When both are `0` (default) the sidebar spans the full height (`top: 0` / `bottom: 0`).
 
 ## Dynamic Menus
 
@@ -278,20 +332,27 @@ src/
 ├── lib/notch/
 │   ├── types.ts          # NotchTab, NotchNavbarProps, Orientation
 │   ├── constants.ts      # Geometry defaults, colors, durations
-│   └── paths.ts          # Pure SVG path generators (no DOM, no React)
+│   ├── geometry.ts       # Effective geometry math (auto-scale, slot clamping)
+│   ├── paths.ts          # Pure SVG path generators (H/V/VRTL, bevels, positions)
+│   └── __tests__/        # Vitest suites for paths, geometry, constants, component
 ├── components/notch-navbar/
-│   ├── notch-navbar.tsx  # React component
+│   ├── notch-navbar.tsx       # Root component — state, animation, RTL/safe-area layout
+│   ├── notch-circle.tsx       # Sliding active circle
+│   ├── notch-tab-item.tsx     # Single tab button / Link (icons, labels)
+│   ├── notch-more-card.tsx    # Overflow popover (menu/menuitem)
+│   ├── notch-navbar-helpers.tsx # Default More icon, useStableCallback, easing
 │   └── notch-navbar.module.scss
 └── app/
     ├── page.tsx          # Interactive playground (localhost:3000)
+    ├── page.module.css
     ├── playground.module.scss
     ├── layout.tsx
     └── globals.css
 ```
 
-**`src/lib/notch/`** is the pure geometry engine — testable without React or a DOM. `paths.ts` exports `barPathH`, `barPathV`, `bevelPathH`, `bevelPathV`, and `getTabPositions`. All functions return SVG `d` strings.
+**`src/lib/notch/`** is the pure geometry engine — testable without React or a DOM. `paths.ts` exports `barPathH`, `barPathV`, `barPathVRTL`, `bevelPathH`, `bevelPathV`, `bevelPathVRTL`, and `getTabPositions`. All functions return SVG `d` strings.
 
-**`src/components/notch-navbar/`** is the React component that consumes the path generators, manages state, animation, and keyboard interaction.
+**`src/components/notch-navbar/`** is the React component split into focused sub-components: the root `notch-navbar.tsx` (state, animation, RTL/safe-area layout), `notch-circle.tsx` (sliding circle), `notch-tab-item.tsx` (tab button/link with optional label), `notch-more-card.tsx` (overflow popover), and `notch-navbar-helpers.tsx` (shared defaults and utilities).
 
 ## Scripts
 

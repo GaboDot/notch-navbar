@@ -302,3 +302,39 @@
     animation: none !important;
   }
 }
+
+/* ── Tab labels (showLabels) ──────────────────────────────────────── */
+
+.tabLabel {
+  font-size: 10px;
+  line-height: 1.2;
+  color: var(--nn-inactive-icon-color, #6B7280);
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── RTL layout ───────────────────────────────────────────────────── */
+
+.tabsHorizontalRTL {
+  composes: tabs;
+  flex-direction: row;
+  direction: rtl;
+  /* Inline padding-inline-start/end set via component */
+}
+
+/* ── Vertical safe-area ───────────────────────────────────────────── */
+
+.tabsVerticalSafeArea {
+  composes: tabs;
+  flex-direction: column;
+  /* inset overridden: left:0, right:0 stay; top/bottom set via inline style */
+  position: absolute;
+  left: 0;
+  right: 0;
+}

@@ -8,13 +8,14 @@ import {
   useCallback,
   useMemo,
 } from 'react';
-import Link from 'next/link';
 import type { NotchNavbarProps, NotchTab } from '@/lib/notch/types';
 import {
   barPathH,
   barPathV,
   bevelPathH,
   bevelPathV,
+  barPathVRTL,
+  bevelPathVRTL,
   getTabPositions,
 } from '@/lib/notch/paths';
 import {
@@ -28,47 +29,16 @@ import {
   DEFAULT_COLORS,
 } from '@/lib/notch/constants';
 import { computeEffectiveGeometry } from '@/lib/notch/geometry';
+import {
+  DefaultMoreIcon,
+  useStableCallback,
+  easeExpoOut,
+  MORE_TAB_NAME,
+} from './notch-navbar-helpers';
+import { NotchCircle } from './notch-circle';
+import { NotchTabItem } from './notch-tab-item';
+import { NotchMoreCard } from './notch-more-card';
 import styles from './notch-navbar.module.scss';
-
-/* ── Default More icon (3×3 grid) ──────────────────────────────────── */
-
-function DefaultMoreIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="6" cy="6" r="1.5" />
-      <circle cx="12" cy="6" r="1.5" />
-      <circle cx="18" cy="6" r="1.5" />
-      <circle cx="6" cy="12" r="1.5" />
-      <circle cx="12" cy="12" r="1.5" />
-      <circle cx="18" cy="12" r="1.5" />
-      <circle cx="6" cy="18" r="1.5" />
-      <circle cx="12" cy="18" r="1.5" />
-      <circle cx="18" cy="18" r="1.5" />
-    </svg>
-  );
-}
-
-/* ── Stable callback ref (React 19 compatible) ─────────────────────── */
-
-function useStableCallback<T extends (...args: never[]) => void>(cb?: T): T {
-  const ref = useRef(cb);
-  useLayoutEffect(() => {
-    ref.current = cb;
-  });
-  return useCallback((...args: Parameters<T>) => {
-    ref.current?.(...args);
-  }, []) as T;
-}
-
-/* ── Easing ────────────────────────────────────────────────────────── */
-
-function easeExpoOut(t: number): number {
-  return t === 1 ? 1 : 1 - 2 ** (-10 * t);
-}
-
-/* ── MORE_TAB sentinel ─────────────────────────────────────────────── */
-
-const MORE_TAB_NAME = '__notch_more__';
 
 /* ── Component ─────────────────────────────────────────────────────── */
 
@@ -94,8 +64,13 @@ export function NotchNavbar({
   containerBottomSpace = 0,
   className,
   tabSize,
+  dir = 'ltr',
+  showLabels = false,
+  topSpace = 0,
+  bottomSpace = 0,
 }: NotchNavbarProps) {
   const isHorizontal = orientation === 'horizontal';
+  const isRTL = dir === 'rtl';
   const circleR = circleSize / 2;
 
   /* ── Overflow logic ──────────────────────────────────────────────── */
@@ -204,19 +179,27 @@ export function NotchNavbar({
 
   const computePositions = useCallback(
     (size: number): number[] => {
+      let positions: number[];
       if (tabSize) {
         const count = barTabs.length;
         const totalTabs = count * tabSize;
         const gap = count > 1 ? (size - 2 * PAD - totalTabs) / (count - 1) : 0;
-        const positions: number[] = [];
+        positions = [];
         for (let i = 0; i < count; i++) {
           positions.push(PAD + tabSize * (i + 0.5) + gap * i);
         }
-        return positions;
+      } else {
+        positions = getTabPositions(barTabs.length, size, PAD);
       }
-      return getTabPositions(barTabs.length, size, PAD);
+
+      // RTL: mirror horizontal positions (first tab → right side)
+      if (isRTL && isHorizontal) {
+        positions = positions.map((p) => size - p);
+      }
+
+      return positions;
     },
-    [tabSize, barTabs.length],
+    [tabSize, barTabs.length, isRTL, isHorizontal],
   );
 
   /* ── Render path + circle (uses effective values) ──────────────── */
@@ -237,8 +220,9 @@ export function NotchNavbar({
         if (circleRef.current) circleRef.current.style.left = `${pos - effectiveCircleR}px`;
       } else {
         const opts = { SH: containerH, SW: containerW, rc, yc, r: cornerRadius };
-        const dBar = barPathV(pos, opts);
-        const dBevel = bevelPathV(pos, { SH: containerH, SW: containerW, rc, yc, r: cornerRadius });
+        const dBar = isRTL ? barPathVRTL(pos, opts) : barPathV(pos, opts);
+        const bevelOpts = { SH: containerH, SW: containerW, rc, yc, r: cornerRadius };
+        const dBevel = isRTL ? bevelPathVRTL(pos, bevelOpts) : bevelPathV(pos, bevelOpts);
 
         if (barPathRef.current) barPathRef.current.setAttribute('d', dBar);
         if (bevelRef.current) bevelRef.current.setAttribute('d', dBevel);
@@ -246,7 +230,7 @@ export function NotchNavbar({
         if (circleRef.current) circleRef.current.style.top = `${pos - effectiveCircleR}px`;
       }
     },
-    [isHorizontal, containerW, containerH, barSize, effectiveCircleR, effectiveGap, cornerRadius],
+    [isHorizontal, isRTL, containerW, containerH, barSize, effectiveCircleR, effectiveGap, cornerRadius],
   );
 
   /* ── Init on mount + resize ───────────────────────────────────── */
@@ -417,7 +401,7 @@ export function NotchNavbar({
     if (circleRef.current) circleRef.current.style.scale = '1';
   }, []);
 
-  /* ── Hidden tab click (declared before handleCardKeyDown) ──────── */
+  /* ── Hidden tab click ─────────────────────────────────────────── */
 
   const handleHiddenTabClick = useCallback(
     (hiddenIdx: number) => {
@@ -467,17 +451,32 @@ export function NotchNavbar({
       let next = barIdx;
 
       if (isHorizontal) {
-        if (e.key === 'ArrowRight') next = (barIdx + 1) % count;
-        else if (e.key === 'ArrowLeft') next = (barIdx - 1 + count) % count;
-        else if (e.key === 'Home') next = 0;
-        else if (e.key === 'End') next = count - 1;
-        else if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          if (hasMore && barIdx === maxVisible) {
-            setCardOpen((v) => !v);
-          }
-          return;
-        } else return;
+        // RTL: arrow direction mirrors
+        if (isRTL) {
+          if (e.key === 'ArrowLeft') next = (barIdx + 1) % count;
+          else if (e.key === 'ArrowRight') next = (barIdx - 1 + count) % count;
+          else if (e.key === 'Home') next = 0;
+          else if (e.key === 'End') next = count - 1;
+          else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (hasMore && barIdx === maxVisible) {
+              setCardOpen((v) => !v);
+            }
+            return;
+          } else return;
+        } else {
+          if (e.key === 'ArrowRight') next = (barIdx + 1) % count;
+          else if (e.key === 'ArrowLeft') next = (barIdx - 1 + count) % count;
+          else if (e.key === 'Home') next = 0;
+          else if (e.key === 'End') next = count - 1;
+          else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (hasMore && barIdx === maxVisible) {
+              setCardOpen((v) => !v);
+            }
+            return;
+          } else return;
+        }
       } else {
         if (e.key === 'ArrowDown') next = (barIdx + 1) % count;
         else if (e.key === 'ArrowUp') next = (barIdx - 1 + count) % count;
@@ -502,7 +501,7 @@ export function NotchNavbar({
       tabRefs.current[next]?.focus();
       switchTab(next);
     },
-    [barTabs.length, isHorizontal, switchTab, getBarIndex, hasMore, maxVisible],
+    [barTabs.length, isHorizontal, isRTL, switchTab, getBarIndex, hasMore, maxVisible],
   );
 
   /* ── Click handlers ───────────────────────────────────────────── */
@@ -547,11 +546,33 @@ export function NotchNavbar({
         transform: 'translateX(-50%)',
       };
     }
+    // Vertical: LTR → card on left, RTL → card on right
+    if (isRTL) {
+      return {
+        right: -(8 + 240),
+        top: 0,
+      };
+    }
     return {
       left: -(8 + 240),
       top: 0,
     };
-  }, [isHorizontal, barSize]);
+  }, [isHorizontal, isRTL, barSize]);
+
+  /* ── Tabs container inline style (safe-area + RTL padding) ────── */
+
+  const tabsStyle: React.CSSProperties = (() => {
+    const s: React.CSSProperties = {};
+    if (!isHorizontal && (topSpace > 0 || bottomSpace > 0)) {
+      s.top = topSpace;
+      s.bottom = bottomSpace;
+    }
+    if (isHorizontal && isRTL) {
+      s.paddingInlineStart = 8;
+      s.paddingInlineEnd = 8;
+    }
+    return s;
+  })();
 
   /* ── Guard: need at least 2 tabs (AFTER all hooks) ────────────── */
 
@@ -561,6 +582,7 @@ export function NotchNavbar({
         className={`${styles.root} ${className ?? ''}`}
         role="navigation"
         aria-label="Main navigation"
+        dir={dir}
         style={{
           ...(containerWidth != null ? { width: containerWidth } : {}),
           ...(isHorizontal
@@ -577,15 +599,21 @@ export function NotchNavbar({
     );
   }
 
-  /* ── Container size ───────────────────────────────────────────── */
+  /* ── Container style ──────────────────────────────────────────── */
 
   const containerStyle: React.CSSProperties = {
     ...(containerWidth != null ? { width: containerWidth } : { left: 0, right: 0 }),
     ...(isHorizontal
       ? { bottom: containerBottomSpace, height: barSize }
-      : containerHeight != null
-        ? { top: 0, height: containerHeight }
-        : { top: 0, bottom: 0, width: barSize }),
+      : {
+          ...(isRTL ? { right: 0 } : { left: 0 }),
+          width: barSize,
+          ...(topSpace > 0 || bottomSpace > 0
+            ? { top: topSpace, bottom: bottomSpace }
+            : containerHeight != null
+              ? { top: 0, height: containerHeight }
+              : { top: 0, bottom: 0 }),
+        }),
   };
 
   /* ── CSS vars ─────────────────────────────────────────────────── */
@@ -609,11 +637,19 @@ export function NotchNavbar({
 
   const circleOffset = isHorizontal
     ? { top: -(effectiveCircleR - CENTER_OFFSET) }
-    : { left: containerW - CENTER_OFFSET - effectiveCircleR };
+    : isRTL
+      ? { left: CENTER_OFFSET }
+      : { left: containerW - CENTER_OFFSET - effectiveCircleR };
 
   /* ── Tabs container class ─────────────────────────────────────── */
 
-  const tabsClass = isHorizontal ? styles.tabsHorizontal : styles.tabsVertical;
+  const tabsClass = isHorizontal
+    ? isRTL
+      ? styles.tabsHorizontalRTL
+      : styles.tabsHorizontal
+    : topSpace > 0 || bottomSpace > 0
+      ? styles.tabsVerticalSafeArea
+      : styles.tabsVertical;
 
   /* ── Bevel shadow transform ───────────────────────────────────── */
 
@@ -630,6 +666,7 @@ export function NotchNavbar({
       style={{ ...containerStyle, ...cssVars }}
       role="navigation"
       aria-label="Main navigation"
+      dir={dir}
     >
       {/* SVG glass bar */}
       <svg
@@ -651,168 +688,72 @@ export function NotchNavbar({
       </svg>
 
       {/* Tabs */}
-      <ul className={tabsClass} role="tablist">
+      <ul className={tabsClass} role="tablist" style={tabsStyle}>
         {barTabs.map((tab, i) => {
           const isMore = hasMore && i === maxVisible;
           const isActive = isMore
             ? hiddenActiveIndex != null
             : i === activeIndex;
 
-          const tabContent = isMore ? (
-            <button
-              ref={(el) => {
-                tabRefs.current[i] = el;
-              }}
-              role="tab"
-              aria-selected={hiddenActiveIndex != null}
-              aria-label={moreLabel}
-              aria-haspopup="menu"
-              aria-expanded={cardOpen}
-              className={hiddenActiveIndex != null ? styles.tabActive : styles.tab}
-              tabIndex={isActive ? 0 : -1}
-              onClick={() => handleTabClick(i)}
-              onKeyDown={handleKeyDown}
-              onPointerDown={handlePointerDown}
-              onPointerUp={handlePointerUp}
-              onPointerLeave={handlePointerUp}
-            >
-              <span className={styles.tabIcon} aria-hidden="true">
-                {moreBarIcon}
-              </span>
-            </button>
-          ) : (
-            <button
-              ref={(el) => {
-                tabRefs.current[i] = el;
-              }}
-              role="tab"
-              aria-selected={i === activeIndex}
-              aria-label={tab.name}
-              className={i === activeIndex ? styles.tabActive : styles.tab}
-              tabIndex={i === activeIndex ? 0 : -1}
-              onClick={() => handleTabClick(i)}
-              onKeyDown={handleKeyDown}
-              onPointerDown={handlePointerDown}
-              onPointerUp={handlePointerUp}
-              onPointerLeave={handlePointerUp}
-            >
-              <span className={styles.tabIcon} aria-hidden="true">
-                {tab.inactiveIcon}
-              </span>
-            </button>
-          );
-
           return (
-            <li
+            <NotchTabItem
               key={isMore ? MORE_TAB_NAME : tab.name}
-              role="none"
-              className={styles.tabSlot}
-              style={tabSize != null ? { width: tabSize, height: tabSize } : { flex: 1 }}
-            >
-              {!isMore && tab.href ? (
-                <Link
-                  href={tab.href}
-                  style={{
-                    display: 'flex',
-                    flex: 1,
-                    textDecoration: 'none',
-                    color: 'inherit',
-                  }}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                >
-                  {tabContent}
-                </Link>
-              ) : (
-                tabContent
-              )}
-            </li>
+              tab={tab}
+              isActive={isActive}
+              isMore={isMore}
+              moreBarIcon={moreBarIcon}
+              showLabel={showLabels}
+              ariaSelected={isMore ? hiddenActiveIndex != null : i === activeIndex}
+              moreLabel={moreLabel}
+              tabSize={tabSize}
+              tabRef={(el) => {
+                tabRefs.current[i] = el;
+              }}
+              onClick={() => handleTabClick(i)}
+              onKeyDown={handleKeyDown}
+              onPointerDown={handlePointerDown}
+              onPointerUp={handlePointerUp}
+              onPointerLeave={handlePointerUp}
+              ariaExpanded={isMore ? cardOpen : undefined}
+            />
           );
         })}
       </ul>
 
       {/* Circle (notch) */}
-      <div
-        ref={circleRef}
-        className={styles.circle}
-        style={{
-          ...circleOffset,
-          width: effectiveCircleSize,
-          height: effectiveCircleSize,
-          willChange: isHorizontal ? 'left' : 'top',
-        }}
-      >
-        {barTabs.map((tab, i) => {
-          const isMore = hasMore && i === maxVisible;
-          if (isMore) {
-            if (hiddenActiveIndex != null) {
-              const hiddenTab = tabs[hiddenActiveIndex];
-              return (
-                <span
-                  key={MORE_TAB_NAME}
-                  className={styles.circleIconActive}
-                >
-                  {hiddenTab?.activeIcon}
-                </span>
-              );
-            }
-            return (
-              <span key={MORE_TAB_NAME} className={styles.circleIconActive}>
-                {moreIconElement}
-              </span>
-            );
-          }
-          return (
-            <span
-              key={tab.name}
-              className={
-                i === activeIndex && hiddenActiveIndex == null
-                  ? styles.circleIconActive
-                  : styles.circleIcon
-              }
-            >
-              {tab.activeIcon}
-            </span>
-          );
-        })}
-      </div>
+      <NotchCircle
+        circleRef={circleRef}
+        effectiveCircleSize={effectiveCircleSize}
+        effectiveCircleR={effectiveCircleR}
+        offset={circleOffset}
+        willChange={isHorizontal ? 'left' : 'top'}
+        barTabs={barTabs}
+        activeIndex={activeIndex}
+        hiddenActiveIndex={hiddenActiveIndex}
+        hasMore={hasMore}
+        maxVisible={maxVisible}
+        tabs={tabs}
+        moreIconElement={moreIconElement}
+      />
 
       {/* More card (popover) */}
       {hasMore && cardOpen && (
-        <div
-          ref={cardRef}
-          className={styles.moreCard}
-          style={cardPositionStyle}
-          role="menu"
-          aria-label={moreLabel}
+        <NotchMoreCard
+          cardRef={cardRef}
+          hiddenTabs={hiddenTabs}
+          activeIndex={activeIndex}
+          maxVisible={maxVisible}
+          cardFocusIdx={cardFocusIdx}
+          activeIconColor={activeIconColor}
+          inactiveIconColor={inactiveIconColor}
+          moreLabel={moreLabel}
+          positionStyle={cardPositionStyle}
+          cardItemRef={(idx) => (el) => {
+            cardItemRefs.current[idx] = el;
+          }}
+          onHiddenTabClick={handleHiddenTabClick}
           onKeyDown={handleCardKeyDown}
-        >
-          {hiddenTabs.map((tab, i) => {
-            const realIdx = maxVisible + i;
-            const isActive = realIdx === activeIndex;
-            return (
-              <button
-                key={tab.name}
-                ref={(el) => {
-                  cardItemRefs.current[i] = el;
-                }}
-                role="menuitem"
-                tabIndex={i === cardFocusIdx ? 0 : -1}
-                className={isActive ? styles.moreCardItemActive : styles.moreCardItem}
-                onClick={() => handleHiddenTabClick(i)}
-              >
-                <span
-                  className={styles.moreCardIcon}
-                  style={{ color: isActive ? activeIconColor : inactiveIconColor }}
-                  aria-hidden="true"
-                >
-                  {isActive ? tab.activeIcon : tab.inactiveIcon}
-                </span>
-                <span className={styles.moreCardLabel}>{tab.name}</span>
-              </button>
-            );
-          })}
-        </div>
+        />
       )}
     </nav>
   );

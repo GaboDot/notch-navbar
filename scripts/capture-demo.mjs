@@ -7,7 +7,7 @@
  */
 
 import { chromium } from 'playwright';
-import { spawn } from 'child_process';
+import { spawn, execSync } from 'child_process';
 import { existsSync, mkdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -61,7 +61,6 @@ function killProcessTree(proc) {
   try {
     // On Windows, spawn taskkill to kill the process tree
     if (process.platform === 'win32') {
-      const { execSync } = require('child_process');
       execSync(`taskkill /PID ${proc.pid} /T /F 2>nul`, { stdio: 'ignore' });
     } else {
       proc.kill('SIGTERM');
@@ -102,7 +101,7 @@ async function main() {
       const s = d.toString();
       if (s.includes('Local:')) console.log('[next]', s.trim());
     });
-    devServer.stderr.on('data', (d) => {
+    devServer.stderr.on('data', () => {
       // Next.js logs some things to stderr (warnings etc.), not fatal
     });
 

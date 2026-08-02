@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Build output del paquete (generado por tsup, no se lint):
     "dist/**",
+    // Reportes de coverage y scripts auxiliares:
+    "coverage/**",
+    "scripts/**",
   ]),
 ]);
 

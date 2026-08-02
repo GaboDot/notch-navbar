@@ -312,6 +312,138 @@ export function bevelPathV(ty: number, opts: BevelVOpts): string {
   );
 }
 
+// ─── Vertical RTL helpers (left-edge cutout) ──────────────────────────────────
+
+/**
+ * Cutout subpath for VERTICAL-RTL orientation (left edge).
+ *
+ * Mirror of cutoutV: cutout at x=0, bulges RIGHT (into sidebar).
+ * Arc sweep=1 (CW top→bottom = bulges right). Verified with shoelace.
+ */
+function cutoutVRTL(
+  ty: number,
+  SH: number,
+  SW: number,
+  rc: number,
+  yc: number,
+  rtl: number,
+  rbl: number,
+): string {
+  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw = Math.min(hw0, ty - rtl, SH - rbl - ty);
+
+  const alpha = Math.asin(yc / rc);
+  const phi = alpha + (4 * Math.PI) / 180;
+  const s = Math.sin(phi);
+  const c = Math.cos(phi);
+
+  // Arc endpoints (at x = yc + rc*sin(phi), no SW mirror)
+  const bx = yc + rc * s;
+  const byOff = rc * c;
+
+  // Control points — top fillet
+  const p1y = ty - hw + EXP_O * (hw - rc * c);
+  const p2x = bx - ARC_TAN * c;
+  const p2y = ty - byOff - ARC_TAN * s;
+
+  // Control points — bottom fillet
+  const q1x = bx - ARC_TAN * c;
+  const q1y = ty + byOff + ARC_TAN * s;
+  const q2y = ty + hw - EXP_O * (hw - rc * c);
+
+  return (
+    `M 0 ${ty - hw}` +
+    ` C 0 ${p1y} ${p2x} ${p2y} ${bx} ${ty - byOff}` +
+    ` A ${rc} ${rc} 0 0 1 ${bx} ${ty + byOff}` +
+    ` C ${q1x} ${q1y} 0 ${q2y} 0 ${ty + hw}`
+  );
+}
+
+/** Options for vertical-RTL bar path */
+interface BarVRTLOpts {
+  SH: number;
+  SW: number;
+  rc: number;
+  yc: number;
+  r?: number;
+}
+
+/** Options for vertical-RTL bevel path */
+interface BevelVRTLOpts {
+  SH: number;
+  SW: number;
+  rc: number;
+  yc: number;
+  r?: number;
+}
+
+/**
+ * Vertical-RTL cutout boundary (left edge).
+ * Open subpath: fillet → arc → fillet.
+ */
+export function cutoutBoundaryVRTL(ty: number, opts: { SH: number; SW: number; rc: number; yc: number }): string {
+  const { SH, SW, rc, yc } = opts;
+  return cutoutVRTL(ty, SH, SW, rc, yc, CORNER_RADIUS, CORNER_RADIUS);
+}
+
+/**
+ * Vertical-RTL bar path: rounded rect + evenodd cutout on left edge.
+ * Apply `fill-rule: evenodd` in CSS/SVG to punch the hole.
+ */
+export function barPathVRTL(ty: number, opts: BarVRTLOpts): string {
+  const { SH, SW, rc, yc, r = CORNER_RADIUS } = opts;
+
+  const rect =
+    `M 0 ${r}` +
+    ` A ${r} ${r} 0 0 1 ${r} 0` +
+    ` L ${SW - r} 0` +
+    ` A ${r} ${r} 0 0 1 ${SW} ${r}` +
+    ` L ${SW} ${SH - r}` +
+    ` A ${r} ${r} 0 0 1 ${SW - r} ${SH}` +
+    ` L ${r} ${SH}` +
+    ` A ${r} ${r} 0 0 1 0 ${SH - r}` +
+    ` Z`;
+
+  const cutout = cutoutVRTL(ty, SH, SW, rc, yc, r, r);
+
+  return `${rect} ${cutout} Z`;
+}
+
+/**
+ * Vertical-RTL bevel path: left edge with cutout (stroke only, no fill).
+ * Traces: top-left corner → cutout → bottom-left corner.
+ */
+export function bevelPathVRTL(ty: number, opts: BevelVRTLOpts): string {
+  const { SH, rc, yc, r = CORNER_RADIUS } = opts;
+
+  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw = Math.min(hw0, ty - r, SH - r - ty);
+
+  const alpha = Math.asin(yc / rc);
+  const phi = alpha + (4 * Math.PI) / 180;
+  const s = Math.sin(phi);
+  const c = Math.cos(phi);
+  const bx = yc + rc * s;
+  const byOff = rc * c;
+  const p1y = ty - hw + EXP_O * (hw - rc * c);
+  const p2x = bx - ARC_TAN * c;
+  const p2y = ty - byOff - ARC_TAN * s;
+  const q1x = bx - ARC_TAN * c;
+  const q1y = ty + byOff + ARC_TAN * s;
+  const q2y = ty + hw - EXP_O * (hw - rc * c);
+
+  return (
+    `M ${r} 0` +
+    ` A ${r} ${r} 0 0 0 0 ${r}` +
+    ` L 0 ${ty - hw}` +
+    ` C 0 ${p1y} ${p2x} ${p2y} ${bx} ${ty - byOff}` +
+    ` A ${rc} ${rc} 0 0 1 ${bx} ${ty + byOff}` +
+    ` C ${q1x} ${q1y} 0 ${q2y} 0 ${ty + hw}` +
+    ` L 0 ${SH - r}` +
+    ` A ${r} ${r} 0 0 0 ${r} ${SH}`
+  );
+}
+
 /**
  * Compute evenly-spaced tab center positions.
  *

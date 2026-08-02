@@ -70,4 +70,58 @@ export interface NotchNavbarProps {
    * When omitted, tabs fill the bar evenly (flex: 1).
    */
   tabSize?: number;
+
+  // --- RTL ---
+  /**
+   * Text direction. 'ltr' (default) flows left-to-right; 'rtl' flows
+   * right-to-left.
+   *
+   * **Horizontal**: tabs are visually reversed (first tab on the right) and
+   * the notch/circle track the mirrored positions.
+   *
+   * **Vertical**: the sidebar positions on the **right** side of the viewport
+   * and the notch sits on the **left** edge (inner edge) of the sidebar.
+   *
+   * Icon mirroring is *not* handled here — the consumer decides via CSS
+   * `transform: scaleX(-1)` or by providing pre-flipped icons.
+   *
+   * @default 'ltr'
+   */
+  dir?: 'ltr' | 'rtl';
+
+  // --- Labels ---
+  /**
+   * When `true`, each inactive tab shows its `name` as a label below the
+   * icon inside the bar. Labels use 10px font, the inactive icon color at
+   * reduced opacity, and center-align under the icon.
+   *
+   * In vertical orientation the label appears below the icon as well.
+   *
+   * The More-card always shows names regardless of this prop.
+   *
+   * @default false
+   */
+  showLabels?: boolean;
+
+  // --- Safe-area (vertical) ---
+  /**
+   * Extra top inset (px) for the vertical sidebar. Useful for clearing the
+   * device status bar or Dynamic Island.
+   *
+   * When omitted the sidebar starts at `top: 0` (horizontal mode ignores
+   * this prop entirely).
+   *
+   * @default 0
+   */
+  topSpace?: number;
+  /**
+   * Extra bottom inset (px) for the vertical sidebar. Useful for clearing
+   * the home indicator area on notched phones.
+   *
+   * When omitted the sidebar ends at `bottom: 0` (horizontal mode ignores
+   * this prop entirely).
+   *
+   * @default 0
+   */
+  bottomSpace?: number;
 }
