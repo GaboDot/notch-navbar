@@ -34,7 +34,9 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "screenshots",
+    "media/demo.gif"
   ],
   "sideEffects": [
     "**/*.module.scss"
