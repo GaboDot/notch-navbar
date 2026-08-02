@@ -225,3 +225,66 @@ describe('getTabPositions', () => {
     expect(getTabPositions(5, 359, 8)).toEqual(getTabPositions(5, 359, 8));
   });
 });
+
+// ─── Auto-scale: cutout with reduced rc must fit inside its slot ─────────────
+// Component clamps effectiveCircleR/effectiveGap (geometry.ts) so rc ≤ slot/2.
+// The cutout mouth (2·hw, hw = sqrt(rc² - yc²)) must then stay within the slot.
+
+describe('reduced rc (auto-scale) — cutout fits in the tab slot', () => {
+  // From computeEffectiveGeometry(W=359, PAD=8): 7 tabs → slot 49 / rc 24.5
+  const SLOT_7 = 49;
+  const RC_7 = 24.5;
+  // 10 tabs → slot 34.3 / rc 17.15
+  const SLOT_10 = 34.3;
+  const RC_10 = 17.15;
+
+  it('barPathH with rc = 24.5 (7 tabs): cutout mouth is smaller than the 49px slot', () => {
+    const cx = 180;
+    const d = barPathH(cx, { W: 359, H: 56, rc: RC_7, yc: 6, r: 10 });
+
+    const [, cutout] = subpathStarts(d);
+    const hw = cx - cutout[0];
+    const mouth = 2 * hw;
+
+    expectClose(hw, Math.sqrt(RC_7 ** 2 - 6 ** 2), 0.01);
+    expect(mouth).toBeLessThan(SLOT_7);
+    expect(d).toContain('A 24.5 24.5 0 0 0');
+  });
+
+  it('barPathH with rc = 17.15 (10 tabs): mouth stays inside the 34.3px slot', () => {
+    const cx = 180;
+    const d = barPathH(cx, { W: 359, H: 56, rc: RC_10, yc: 6, r: 10 });
+
+    const [, cutout] = subpathStarts(d);
+    const hw = cx - cutout[0];
+
+    expectClose(hw, Math.sqrt(RC_10 ** 2 - 6 ** 2), 0.01);
+    expect(2 * hw).toBeLessThan(SLOT_10);
+  });
+
+  it('bevelPathH with rc = 24.5: left junction stays inside the slot bounds', () => {
+    const cx = 180;
+    const d = bevelPathH(cx, { W: 359, rc: RC_7, yc: 6 });
+
+    const m = d.match(/L (\d+\.?\d*) 0/);
+    const leftJunction = m ? parseFloat(m[1]) : 0;
+    const hw = cx - leftJunction;
+
+    expectClose(hw, Math.sqrt(RC_7 ** 2 - 6 ** 2), 0.01);
+    expect(2 * hw).toBeLessThan(SLOT_7);
+    expect(d).toContain('A 24.5 24.5 0 0 0');
+  });
+
+  it('rc is always ≤ slot/2 across counts → mouth ≤ slot (no neighbor overlap)', () => {
+    // Structural check on the geometry contract, not the component.
+    for (const [slot, rc] of [
+      [68.6, 34.3], // 5 tabs
+      [49, 24.5], // 7 tabs
+      [34.3, 17.15], // 10 tabs
+    ]) {
+      expect(rc).toBeLessThanOrEqual(slot / 2 + 1e-9);
+      const hw = Math.sqrt(rc ** 2 - 6 ** 2);
+      expect(2 * hw).toBeLessThanOrEqual(slot);
+    }
+  });
+});

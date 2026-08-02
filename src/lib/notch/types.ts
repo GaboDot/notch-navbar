@@ -19,6 +19,14 @@ export interface NotchNavbarProps {
   /** Callback when active tab changes */
   onTabChange?: (tab: NotchTab, index: number) => void;
 
+  // --- Overflow ---
+  /** Max visible tabs in the bar. Extra tabs go into a "More" card. Default 5 */
+  maxVisible?: number;
+  /** Label for the "More" tab (aria-label). Default "More" */
+  moreLabel?: string;
+  /** Icon for the "More" tab. Default: inline 3×3 grid SVG */
+  moreIcon?: ReactNode;
+
   // --- Orientation ---
   /** 'horizontal' = bottom bar, 'vertical' = sidebar. Default 'horizontal' */
   orientation?: Orientation;

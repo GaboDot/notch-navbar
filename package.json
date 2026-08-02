@@ -1,26 +1,61 @@
 {
-  "name": "notchnavbar",
+  "name": "notch-navbar",
   "version": "0.1.0",
-  "private": true,
+  "description": "Animated tab bar / sidebar with sliding SVG notch cutout + concentric circle indicator for React/Next.js",
+  "license": "MIT",
+  "author": "NotchNavbar contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notchnavbar/notch-navbar.git"
+  },
+  "keywords": [
+    "notch",
+    "navbar",
+    "tabbar",
+    "sidebar",
+    "navigation",
+    "svg",
+    "animated",
+    "react",
+    "nextjs"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.module.scss"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:lib": "tsup",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build:lib"
   },
-  "dependencies": {
-    "d3-interpolate-path": "^2.3.0",
-    "d3-shape": "^3.2.0",
-    "framer-motion": "^12.43.0",
-    "lucide-react": "^1.28.0",
-    "next": "16.2.12",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "sass": "^1.102.0"
+  "peerDependencies": {
+    "next": ">=14",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "sass": ">=1.69"
   },
+  "dependencies": {},
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^7.0.0",
@@ -32,9 +67,18 @@
     "@vitejs/plugin-react": "^6.0.5",
     "@vitest/coverage-v8": "^4.1.10",
     "babel-plugin-react-compiler": "1.0.0",
+    "d3-interpolate-path": "^2.3.0",
+    "d3-shape": "^3.2.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "framer-motion": "^12.43.0",
     "jsdom": "^29.1.1",
+    "lucide-react": "^1.28.0",
+    "next": "16.2.12",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "sass": "^1.102.0",
+    "tsup": "^8.0.0",
     "typescript": "^5",
     "vitest": "^4.1.10"
   }

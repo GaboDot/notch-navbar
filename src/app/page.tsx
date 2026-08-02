@@ -10,26 +10,35 @@ import {
   Wifi,
   Bell,
   Battery,
+  Calendar,
+  Folder,
+  Heart,
+  Star,
 } from 'lucide-react';
 import { NotchNavbar } from '@/components/notch-navbar/notch-navbar';
 import type { NotchTab, Orientation } from '@/lib/notch/types';
 import { DEFAULT_COLORS, DURATION_DEFAULT, NOTCH_GAP, CORNER_RADIUS } from '@/lib/notch/constants';
 import styles from './playground.module.scss';
 
-/* ── Icon sets ─────────────────────────────────────────────────────── */
+/* ── Icon pool (10 tabs) ──────────────────────────────────────────── */
 
-const ALL_ICONS = [
+const ICON_POOL = [
   { name: 'Home', Icon: Home },
   { name: 'Search', Icon: Search },
   { name: 'Cart', Icon: ShoppingCart },
   { name: 'Settings', Icon: Settings },
   { name: 'Profile', Icon: User },
+  { name: 'Bell', Icon: Bell },
+  { name: 'Calendar', Icon: Calendar },
+  { name: 'Folder', Icon: Folder },
+  { name: 'Heart', Icon: Heart },
+  { name: 'Star', Icon: Star },
 ] as const;
 
 /* ── Helpers ───────────────────────────────────────────────────────── */
 
 function makeTabs(count: number): NotchTab[] {
-  return ALL_ICONS.slice(0, count).map(({ name, Icon }) => ({
+  return ICON_POOL.slice(0, count).map(({ name, Icon }) => ({
     name,
     activeIcon: <Icon size={24} stroke="currentColor" />,
     inactiveIcon: <Icon size={24} stroke="currentColor" />,
@@ -97,9 +106,10 @@ export default function PlaygroundPage() {
   const [notchGap, setNotchGap] = useState(NOTCH_GAP);
   const [cornerRadius, setCornerRadius] = useState(CORNER_RADIUS);
   const [transitionSpeed, setTransitionSpeed] = useState(DURATION_DEFAULT);
-  const [tabCount, setTabCount] = useState(4);
+  const [tabCount, setTabCount] = useState(5);
   const [tabSize, setTabSize] = useState(0);
   const [activeTabName, setActiveTabName] = useState('Home');
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   /* ── Memoized tabs ─────────────────────────────────────────────── */
 
@@ -107,8 +117,9 @@ export default function PlaygroundPage() {
 
   /* ── Callbacks ─────────────────────────────────────────────────── */
 
-  const handleTabChange = useCallback((tab: NotchTab) => {
+  const handleTabChange = useCallback((tab: NotchTab, index: number) => {
     setActiveTabName(tab.name);
+    setActiveTabIndex(index);
   }, []);
 
   /* ── Preview: horizontal (phone) ───────────────────────────────── */
@@ -134,6 +145,7 @@ export default function PlaygroundPage() {
           cornerRadius={cornerRadius}
           notchGap={notchGap}
           transitionSpeed={transitionSpeed}
+          tabSize={tabSize || undefined}
           containerBottomSpace={0}
           onTabChange={handleTabChange}
         />
@@ -320,47 +332,49 @@ export default function PlaygroundPage() {
           </div>
 
           <div className={styles.controlGroup}>
-            <span className={styles.controlLabel}>Tab Count</span>
-            <div className={styles.tabCountRow}>
-              {[3, 4, 5].map((n) => (
-                <button
-                  key={n}
-                  className={`${styles.tabCountBtn} ${tabCount === n ? styles.tabCountBtnActive : ''}`}
-                  onClick={() => {
-                    setTabCount(n);
-                    setActiveTabName(ALL_ICONS[0].name);
-                  }}
-                >
-                  {n}
-                </button>
-              ))}
-            </div>
+            <span className={styles.controlLabel}>
+              Tab Count
+              <span className={styles.controlValue}>{tabCount}</span>
+            </span>
+            <input
+              type="range"
+              className={styles.slider}
+              min={3}
+              max={9}
+              step={1}
+              value={tabCount}
+              onChange={(e) => {
+                const n = Number(e.target.value);
+                setTabCount(n);
+                setActiveTabName(ICON_POOL[0].name);
+                setActiveTabIndex(0);
+              }}
+            />
           </div>
 
-          {orientation === 'vertical' && (
-            <div className={styles.controlGroup}>
-              <span className={styles.controlLabel}>
-                Tab Size (vertical)
-                <span className={styles.controlValue}>{tabSize === 0 ? 'auto' : `${tabSize}px`}</span>
-              </span>
-              <input
-                type="range"
-                className={styles.slider}
-                min={0}
-                max={60}
-                step={1}
-                value={tabSize}
-                onChange={(e) => setTabSize(Number(e.target.value))}
-              />
-            </div>
-          )}
+          <div className={styles.controlGroup}>
+            <span className={styles.controlLabel}>
+              Tab Size{orientation === 'vertical' ? ' (vertical)' : ''}
+              <span className={styles.controlValue}>{tabSize === 0 ? 'auto' : `${tabSize}px`}</span>
+            </span>
+            <input
+              type="range"
+              className={styles.slider}
+              min={0}
+              max={60}
+              step={1}
+              value={tabSize}
+              onChange={(e) => setTabSize(Number(e.target.value))}
+            />
+          </div>
 
           <div className={styles.divider} />
 
           {/* Active tab indicator */}
           <div className={styles.activeLog}>
             <span className={styles.activeLogDot} />
-            Active: {activeTabName}
+            Active: {activeTabName} (index {activeTabIndex})
+            {tabCount > 5 && activeTabIndex >= 5 && ' — via More card'}
           </div>
         </div>
 
