@@ -9,6 +9,22 @@ Animated tab bar / sidebar component for React and Next.js with a sliding SVG se
 
 Port of the [Mindinventory react-native-tabbar-interaction](https://github.com/Mindinventory/react-native-tabbar-interaction) concept to the web — pure SVG geometry, no canvas, no raster assets.
 
+## Media / Demo
+
+**Playground interactivo:** [http://localhost:3000](http://localhost:3000)
+
+### Screenshots
+
+| Horizontal — 5 tabs (default) | Vertical — sidebar | More Card — 7+ tabs |
+|:---:|:---:|:---:|
+| ![Horizontal default](screenshots/horizontal.png) | ![Vertical orientation](screenshots/vertical.png) | ![More card popover](screenshots/more-card.png) |
+
+### Demo Video
+
+<video src="media/demo.mp4" controls width="100%" poster="screenshots/horizontal.png"></video>
+
+> Also available as [WebM](media/demo.webm).
+
 ## Features
 
 - **Sliding notch** — SVG `evenodd` rounded-rect with a concentric circular cutout that glides between tabs
