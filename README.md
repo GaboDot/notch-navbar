@@ -19,11 +19,11 @@ Port of the [Mindinventory react-native-tabbar-interaction](https://github.com/M
 |:---:|:---:|:---:|
 | ![Horizontal default](screenshots/horizontal.png) | ![Vertical orientation](screenshots/vertical.png) | ![More card popover](screenshots/more-card.png) |
 
-### Demo Video
+### Demo
 
-<video src="media/demo.mp4" controls width="100%" poster="screenshots/horizontal.png"></video>
+![NotchNavbar demo — sliding notch, orientation toggle, More card](media/demo.gif)
 
-> Also available as [WebM](media/demo.webm).
+> Video full quality: [MP4](media/demo.mp4) · [WebM](media/demo.webm)
 
 ## Features
 
