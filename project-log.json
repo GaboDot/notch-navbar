@@ -28,10 +28,12 @@
       "model_used": "opencode-go/mimo-v2.5-pro",
   "status": "completed",
   "published": {
-    "npm": "notch-navbar@0.2.0",
+    "npm": "notch-navbar@0.2.1",
     "npm_url": "https://www.npmjs.com/package/notch-navbar",
     "github": "https://github.com/GaboDot/notch-navbar",
     "published_at": "2026-08-02T00:42:00Z",
+    "ci_validated": true,
+    "ci_run": "Publish to npm v0.2.1 - success (auto-publish por tag con NPM_TOKEN secret)",
     "auth_notes": "npm 2FA moderno solo ofrece Security Key (passkey) → token granular Read&Write + bypass 2FA. OTP falló 3x (timing + passkey sin TOTP)."
   },
       "started_at": "2026-08-01T00:00:00Z",
