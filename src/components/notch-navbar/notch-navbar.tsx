@@ -115,6 +115,7 @@ export function NotchNavbar({
   const [hiddenActiveIndex, setHiddenActiveIndex] = useState<number | null>(null);
   const [cardOpen, setCardOpen] = useState(false);
   const [cardFocusIdx, setCardFocusIdx] = useState(0);
+  const [moreActive, setMoreActive] = useState(false);
 
   /* ── Refs for animation ───────────────────────────────────────── */
 
@@ -123,6 +124,8 @@ export function NotchNavbar({
   const activeIndexRef = useRef(activeIndex);
   const hiddenActiveRef = useRef(hiddenActiveIndex);
   const cardOpenRef = useRef(cardOpen);
+  const moreActiveRef = useRef(moreActive);
+  const prevActiveBarIdxRef = useRef(0);
 
   useLayoutEffect(() => {
     activeIndexRef.current = activeIndex;
@@ -135,6 +138,10 @@ export function NotchNavbar({
   useLayoutEffect(() => {
     cardOpenRef.current = cardOpen;
   }, [cardOpen]);
+
+  useLayoutEffect(() => {
+    moreActiveRef.current = moreActive;
+  }, [moreActive]);
 
   /* ── Stable onTabChange ───────────────────────────────────────── */
 
@@ -233,8 +240,14 @@ export function NotchNavbar({
         if (bevelShadowRef.current) bevelShadowRef.current.setAttribute('d', dBevel);
         if (circleRef.current) circleRef.current.style.top = `${pos - effectiveCircleR}px`;
       }
+
+      // Keep --nn-more-pos in sync (for card anchoring on resize)
+      const morePos = tabPositionsRef.current[moreSlotIndex];
+      if (morePos !== undefined && containerRef.current) {
+        containerRef.current.style.setProperty('--nn-more-pos', `${morePos}px`);
+      }
     },
-    [isHorizontal, isRTL, containerW, containerH, barSize, effectiveCircleR, effectiveGap, cornerRadius],
+    [isHorizontal, isRTL, containerW, containerH, barSize, effectiveCircleR, effectiveGap, cornerRadius, moreSlotIndex],
   );
 
   /* ── Init on mount + resize ───────────────────────────────────── */
@@ -325,6 +338,76 @@ export function NotchNavbar({
     }
   }, [cardOpen, hiddenActiveIndex, moreSlotIndex]);
 
+  /* ── Animate notch to a bar slot without changing activeIndex ─── */
+
+  const moveNotchTo = useCallback(
+    (barIndex: number) => {
+      if (animatingRef.current) return;
+      const toPos = tabPositionsRef.current[barIndex];
+      if (toPos === undefined) return;
+
+      const fromPos = currentPosRef.current;
+      if (fromPos === toPos) return;
+
+      animatingRef.current = true;
+
+      // Update ARIA on bar buttons
+      const prevBarIdx =
+        moreActiveRef.current || hiddenActiveRef.current != null
+          ? moreSlotIndex
+          : getBarIndex(activeIndexRef.current);
+      const prevBtn = tabRefs.current[prevBarIdx];
+      if (prevBtn && prevBarIdx !== barIndex) {
+        prevBtn.setAttribute('aria-selected', 'false');
+        prevBtn.setAttribute('tabindex', '-1');
+      }
+      const nextBtn = tabRefs.current[barIndex];
+      if (nextBtn) {
+        nextBtn.setAttribute('aria-selected', 'true');
+        nextBtn.setAttribute('tabindex', '0');
+      }
+
+      if (reducedMotionRef.current) {
+        currentPosRef.current = toPos;
+        render(toPos);
+        animatingRef.current = false;
+        return;
+      }
+
+      const duration = transitionSpeed;
+      let startTime: number | null = null;
+
+      const animate = (ts: number) => {
+        if (!startTime) startTime = ts;
+        const t = Math.min((ts - startTime) / duration, 1);
+        const eased = easeExpoOut(t);
+        const pos = fromPos + (toPos - fromPos) * eased;
+        currentPosRef.current = pos;
+        render(pos);
+
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          currentPosRef.current = toPos;
+          animatingRef.current = false;
+        }
+      };
+
+      requestAnimationFrame(animate);
+    },
+    [transitionSpeed, render, getBarIndex, moreSlotIndex],
+  );
+
+  /* ── Revert notch when card closes without hidden tab selection ─ */
+
+  useEffect(() => {
+    if (!cardOpen && moreActive && hiddenActiveRef.current == null) {
+      moveNotchTo(prevActiveBarIdxRef.current);
+      moreActiveRef.current = false;
+      setMoreActive(false);
+    }
+  }, [cardOpen, moreActive, moveNotchTo]);
+
   /* ── Switch tab with rAF animation ────────────────────────────── */
 
   const switchTab = useCallback(
@@ -360,6 +443,8 @@ export function NotchNavbar({
       const isHidden = hasMore && newRealIndex >= maxVisible;
       hiddenActiveRef.current = isHidden ? newRealIndex : null;
       setHiddenActiveIndex(isHidden ? newRealIndex : null);
+      moreActiveRef.current = false;
+      setMoreActive(false);
 
       stableOnTabChange?.(tabs[newRealIndex], newRealIndex);
 
@@ -463,7 +548,16 @@ export function NotchNavbar({
           else if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             if (hasMore && barIdx === moreSlotIndex) {
-              setCardOpen((v) => !v);
+              if (cardOpenRef.current) {
+                setCardOpen(false);
+                setMoreActive(false);
+              } else {
+                prevActiveBarIdxRef.current = getBarIndex(activeIndexRef.current);
+                setCardOpen(true);
+                moreActiveRef.current = true;
+                setMoreActive(true);
+                moveNotchTo(moreSlotIndex);
+              }
             }
             return;
           } else return;
@@ -475,7 +569,16 @@ export function NotchNavbar({
           else if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             if (hasMore && barIdx === moreSlotIndex) {
-              setCardOpen((v) => !v);
+              if (cardOpenRef.current) {
+                setCardOpen(false);
+                setMoreActive(false);
+              } else {
+                prevActiveBarIdxRef.current = getBarIndex(activeIndexRef.current);
+                setCardOpen(true);
+                moreActiveRef.current = true;
+                setMoreActive(true);
+                moveNotchTo(moreSlotIndex);
+              }
             }
             return;
           } else return;
@@ -488,7 +591,16 @@ export function NotchNavbar({
         else if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           if (hasMore && barIdx === moreSlotIndex) {
-            setCardOpen((v) => !v);
+            if (cardOpenRef.current) {
+              setCardOpen(false);
+              setMoreActive(false);
+            } else {
+              prevActiveBarIdxRef.current = getBarIndex(activeIndexRef.current);
+              setCardOpen(true);
+              moreActiveRef.current = true;
+              setMoreActive(true);
+              moveNotchTo(moreSlotIndex);
+            }
           }
           return;
         } else return;
@@ -504,7 +616,7 @@ export function NotchNavbar({
       tabRefs.current[next]?.focus();
       switchTab(next);
     },
-    [barTabs.length, isHorizontal, isRTL, switchTab, getBarIndex, hasMore, moreSlotIndex],
+    [barTabs.length, isHorizontal, isRTL, switchTab, getBarIndex, hasMore, moreSlotIndex, moveNotchTo],
   );
 
   /* ── Click handlers ───────────────────────────────────────────── */
@@ -512,16 +624,26 @@ export function NotchNavbar({
   const handleTabClick = useCallback(
     (barIndex: number) => {
       if (hasMore && barIndex === moreSlotIndex) {
-        setCardOpen((v) => !v);
+        if (cardOpenRef.current) {
+          // Close: card effect handles notch revert when moreActive is true
+          setCardOpen(false);
+        } else {
+          // Open: animate notch to More slot
+          prevActiveBarIdxRef.current = getBarIndex(activeIndexRef.current);
+          setCardOpen(true);
+          moreActiveRef.current = true;
+          setMoreActive(true);
+          moveNotchTo(moreSlotIndex);
+        }
         tabRefs.current[barIndex]?.focus();
         return;
       }
-      if (cardOpen) setCardOpen(false);
+      if (cardOpenRef.current) setCardOpen(false);
 
       switchTab(barIndex);
       tabRefs.current[barIndex]?.focus();
     },
-    [switchTab, hasMore, moreSlotIndex, cardOpen],
+    [switchTab, hasMore, moreSlotIndex, getBarIndex, moveNotchTo],
   );
 
   /* ── More tab icon ────────────────────────────────────────────── */
@@ -545,7 +667,7 @@ export function NotchNavbar({
     if (isHorizontal) {
       return {
         bottom: barSize + 8,
-        left: '50%',
+        left: 'var(--nn-more-pos)',
         transform: 'translateX(-50%)',
       };
     }
@@ -553,12 +675,14 @@ export function NotchNavbar({
     if (isRTL) {
       return {
         right: -(8 + 240),
-        top: 0,
+        top: 'var(--nn-more-pos)',
+        transform: 'translateY(-50%)',
       };
     }
     return {
       left: -(8 + 240),
-      top: 0,
+      top: 'var(--nn-more-pos)',
+      transform: 'translateY(-50%)',
     };
   }, [isHorizontal, isRTL, barSize]);
 
@@ -694,9 +818,10 @@ export function NotchNavbar({
       <ul className={tabsClass} role="tablist" style={tabsStyle}>
         {barTabs.map((tab, i) => {
           const isMore = hasMore && i === moreSlotIndex;
+          const moreSelected = moreActive || hiddenActiveIndex != null;
           const isActive = isMore
-            ? hiddenActiveIndex != null
-            : i === activeIndex;
+            ? moreSelected
+            : i === activeIndex && !moreActive;
 
           return (
             <NotchTabItem
@@ -706,7 +831,7 @@ export function NotchNavbar({
               isMore={isMore}
               moreBarIcon={moreBarIcon}
               showLabel={showLabels}
-              ariaSelected={isMore ? hiddenActiveIndex != null : i === activeIndex}
+              ariaSelected={isMore ? moreSelected : i === activeIndex && !moreActive}
               moreLabel={moreLabel}
               tabSize={tabSize}
               tabRef={(el) => {
@@ -733,6 +858,7 @@ export function NotchNavbar({
         barTabs={barTabs}
         activeIndex={activeIndex}
         hiddenActiveIndex={hiddenActiveIndex}
+        moreActive={moreActive}
         hasMore={hasMore}
         maxVisible={maxVisible}
         tabs={tabs}

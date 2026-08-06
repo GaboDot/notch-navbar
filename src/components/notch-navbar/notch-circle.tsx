@@ -15,6 +15,8 @@ interface NotchCircleProps {
   barTabs: NotchTab[];
   activeIndex: number;
   hiddenActiveIndex: number | null;
+  /** True when notch is on More slot but no hidden tab selected yet */
+  moreActive: boolean;
   hasMore: boolean;
   maxVisible: number;
   tabs: NotchTab[];
@@ -29,11 +31,14 @@ export function NotchCircle({
   barTabs,
   activeIndex,
   hiddenActiveIndex,
+  moreActive,
   hasMore,
   maxVisible,
   tabs,
   moreIconElement,
 }: NotchCircleProps) {
+  const moreSelected = moreActive || hiddenActiveIndex != null;
+
   return (
     <div
       ref={circleRef}
@@ -55,7 +60,7 @@ export function NotchCircle({
             <span
               key={MORE_TAB_NAME}
               className={
-                hiddenActiveIndex != null
+                moreSelected
                   ? styles.circleIconActive
                   : styles.circleIcon
               }
@@ -68,7 +73,7 @@ export function NotchCircle({
           <span
             key={tab.name}
             className={
-              i === activeIndex && hiddenActiveIndex == null
+              i === activeIndex && !moreSelected
                 ? styles.circleIconActive
                 : styles.circleIcon
             }

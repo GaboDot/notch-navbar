@@ -15,9 +15,9 @@
     "semantic_hash": "55a7c08c3458da1942d90b53e0b12f49"
   },
   "project-log.json": {
-    "mtime": 1786035460.841814,
-    "ast_hash": "a13800cd9352cf27eab46854548b3bb9",
-    "semantic_hash": "a13800cd9352cf27eab46854548b3bb9"
+    "mtime": 1786035868.342704,
+    "ast_hash": "4283f7252486e34a3e3bf744d253be10",
+    "semantic_hash": "4283f7252486e34a3e3bf744d253be10"
   },
   "src/app/layout.tsx": {
     "mtime": 1785618828.5404608,
@@ -30,9 +30,9 @@
     "semantic_hash": "936e6c68730ea800d7cbc11ce30831b4"
   },
   "src/components/notch-navbar/notch-navbar.tsx": {
-    "mtime": 1786035092.4261029,
-    "ast_hash": "fbe98f1acf60564861c09a0d18382205",
-    "semantic_hash": "fbe98f1acf60564861c09a0d18382205"
+    "mtime": 1786036704.9816487,
+    "ast_hash": "ecb6c5a86375d888dc3a903500983395",
+    "semantic_hash": "ecb6c5a86375d888dc3a903500983395"
   },
   "src/lib/notch/__tests__/constants.test.ts": {
     "mtime": 1785620491.7193978,
@@ -85,9 +85,9 @@
     "semantic_hash": "3d4eba3a44565da70ff6b13339f2477c"
   },
   "src/components/notch-navbar/notch-circle.tsx": {
-    "mtime": 1786035716.1498506,
-    "ast_hash": "1d4d8875850627412d81030ca5c7c809",
-    "semantic_hash": "1d4d8875850627412d81030ca5c7c809"
+    "mtime": 1786036346.990551,
+    "ast_hash": "4f620d519004846354f97a4369a4552b",
+    "semantic_hash": "4f620d519004846354f97a4369a4552b"
   },
   "src/components/notch-navbar/notch-more-card.tsx": {
     "mtime": 1786035104.9142482,
@@ -153,5 +153,10 @@
     "mtime": 1785631772.9644475,
     "ast_hash": "ca2f82f057453f5f5526b8dc651e5c80",
     "semantic_hash": "ca2f82f057453f5f5526b8dc651e5c80"
+  },
+  "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx": {
+    "mtime": 1786036793.3314898,
+    "ast_hash": "2aa3d7c4c524a4447b8a07a6bd2f1012",
+    "semantic_hash": "2aa3d7c4c524a4447b8a07a6bd2f1012"
   }
 }
