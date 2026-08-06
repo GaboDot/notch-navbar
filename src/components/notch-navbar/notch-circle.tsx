@@ -52,7 +52,14 @@ export function NotchCircle({
             ? (tabs[hiddenActiveIndex]?.activeIcon ?? moreIconElement)
             : moreIconElement;
           return (
-            <span key={MORE_TAB_NAME} className={styles.circleIconActive}>
+            <span
+              key={MORE_TAB_NAME}
+              className={
+                hiddenActiveIndex != null
+                  ? styles.circleIconActive
+                  : styles.circleIcon
+              }
+            >
               {icon}
             </span>
           );

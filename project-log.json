@@ -1,70 +1,83 @@
-{
-  "project": "NotchNavbar",
-  "description": "Componente reutilizable Next.js/React: tab bar inferior con notch SVG deslizante y FAB circular, port de Mindinventory/react-native-tabbar-interaction",
-  "root": "F:\\Develop\\NotchNavbar",
-  "created_at": "2026-08-01T00:00:00Z",
-  "model_mode": "gratuito",
-  "stack": "Next.js 15 + TypeScript + SCSS, framer-motion, d3-shape, d3-interpolate-path, lucide-react, Vitest",
-  "architecture": "Componente UI client-only ('use client') + librería de paths TS pura + demo App Router",
-  "scope": "Prototipo (Frontend-design, Frontend, Testing, Documentation)",
-  "status": "completed",
-  "resume_step": null,
-  "published": {
-    "npm": "notch-navbar@0.2.1",
-    "npm_url": "https://www.npmjs.com/package/notch-navbar",
-    "github": "https://github.com/GaboDot/notch-navbar",
-    "published_at": "2026-08-02T00:42:00Z",
-    "ci_validated": true,
-    "ci_run": "Publish to npm v0.2.1 - success (auto-publish por tag con NPM_TOKEN secret)",
-    "auth_notes": "npm 2FA moderno solo ofrece Security Key (passkey) → token granular Read&Write + bypass 2FA. OTP falló 3x (timing + passkey sin TOTP)."
-  },
-  "graphify": {
-    "initialized": true,
-    "last_update": "2026-08-06T00:00:00Z",
-    "nodes": 256,
-    "edges": 344,
-    "communities": 19
-  },
-  "summary": {
-    "total_time_seconds": 7200,
-    "models_used": ["opencode-go/mimo-v2.5-pro", "opencode-go/mimo-v2.5"],
-    "total_doubts": 2,
-    "resolved_doubts": 2
-  },
-  "iterations": [
-    {
-      "area": "frontend-design",
-      "model_used": "opencode-go/mimo-v2.5-pro",
-      "status": "completed",
-      "started_at": "2026-08-01T00:00:00Z",
-      "completed_at": "2026-08-01T01:00:00Z",
-      "output_files": [
-        "Specs/frontend-design-spec.md",
-        "Specs/mockup/notch-navbar-mockup.html",
-        "Specs/mockup/notch-sidebar-mockup.html"
-      ],
-      "doubts": [
-        { "q": "Soporte Link de Next.js o solo onTabChange?", "priority": "high", "resolved": "onTabChange + href opcional" },
-        { "q": "d3-shape o pre-computar paths?", "priority": "high", "resolved": "d3-shape + d3-interpolate-path" }
-      ],
-      "notes": "DOS mockups aprobados. Horizontal (navbar): recorte circular concéntrico (arco A sweep=0, rc=CIRCLE_R+7, centro y=6, gap 7px), fillet esquinas (phi=alpha+4°), PAD 8px lateral, bar blanco puro #FFFFFF 56px flush bottom radios 10/10, bisel 3D (highlight blanco 0.95 1.5px + sombra difusa translateY(3px) blur2 alpha 0.07), sombra círculo pegada, app-content #F0F2F5, sin dark/glow/theme. Vertical (sidebar): misma geometría rotada 90° (borde derecho, espejo x→SW−x, arco sweep=1→0, círculo sobresale derecha 22px), full-height 790px flush left, tabs compactos 60px+gap8 con header/footer, bisel 3D con translateX(3px), app-area #F0F2F5. Lecciones: curva original = curveBasis d3-shape (prof. 44.6 asimétrica); sweep flags verificados empíricamente (horiz: 1=arriba, 0=abajo; rotado: 1=derecha, espejado 0=izquierda); bisel 3D = highlight nítido + sombra difusa (no línea paralela)."
-    },
-    {
-      "area": "frontend",
-      "model_used": "opencode-go/mimo-v2.5-pro",
-      "status": "completed",
-      "started_at": "2026-08-06T00:00:00Z",
-      "completed_at": "2026-08-06T00:20:00Z",
-      "output_files": [
-        "src/components/notch-navbar/notch-navbar.tsx",
-        "src/components/notch-navbar/notch-circle.tsx",
-        "src/components/notch-navbar/notch-more-card.tsx",
-        "src/app/page.tsx",
-        "src/lib/notch/__tests__/notch-navbar.test.tsx",
-        "src/lib/notch/__tests__/notch-navbar-features.test.tsx"
-      ],
-      "doubts": [],
-      "notes": "FIX overflow More (bug reportado por usuario): con tabs.length > maxVisible, el bar DEBE mostrar (maxVisible-1) tabs reales + More en el slot maxVisible-1 → total maxVisible slots → NUNCA re-dimensiona ni re-escala (círculo queda 56px, sin shrink). Antes el More era un slot adicional (maxVisible+1) → slots 74.8→62.3px → auto-escala encogía círculo a 50px → bisel 3D fijo (1.5px+3px blur) e ícono 24px fijo quedaban desproporcionados ('border muy grueso, ícono deforme'). Diagnóstico previo con explore: punto de ruptura en tabCount=6. Nuevo moreSlotIndex = maxVisible-1 usado en getBarIndex, keyboard, escape, click, circle y more-card. hiddenTabs = tabs.slice(maxVisible-1). Tests: 97/97 (5 nuevos de slot-sizing + 6 actualizados)."
-    }
-  ]
+﻿{
+    "project":  "NotchNavbar",
+    "description":  "Componente reutilizable Next.js/React: tab bar inferior con notch SVG deslizante y FAB circular, port de Mindinventory/react-native-tabbar-interaction",
+    "root":  "F:\\Develop\\NotchNavbar",
+    "created_at":  "2026-08-01T00:00:00Z",
+    "model_mode":  "gratuito",
+    "stack":  "Next.js 15 + TypeScript + SCSS, framer-motion, d3-shape, d3-interpolate-path, lucide-react, Vitest",
+    "architecture":  "Componente UI client-only (\u0027use client\u0027) + librerÃ­a de paths TS pura + demo App Router",
+    "scope":  "Prototipo (Frontend-design, Frontend, Testing, Documentation)",
+    "status":  "completed",
+    "resume_step":  null,
+    "published":  {
+                      "npm":  "notch-navbar@0.2.1",
+                      "npm_url":  "https://www.npmjs.com/package/notch-navbar",
+                      "github":  "https://github.com/GaboDot/notch-navbar",
+                      "published_at":  "2026-08-02T00:42:00Z",
+                      "ci_validated":  true,
+                      "ci_run":  "Publish to npm v0.2.1 - success (auto-publish por tag con NPM_TOKEN secret)",
+                      "auth_notes":  "npm 2FA moderno solo ofrece Security Key (passkey) â†’ token granular Read\u0026Write + bypass 2FA. OTP fallÃ³ 3x (timing + passkey sin TOTP)."
+                  },
+    "graphify":  {
+                     "initialized":  true,
+                     "last_update":  "2026-08-06T00:00:00Z",
+                     "nodes":  256,
+                     "edges":  341,
+                     "communities":  19
+                 },
+    "summary":  {
+                    "total_time_seconds":  7200,
+                    "models_used":  [
+                                        "opencode-go/mimo-v2.5-pro",
+                                        "opencode-go/mimo-v2.5"
+                                    ],
+                    "total_doubts":  2,
+                    "resolved_doubts":  2
+                },
+    "iterations":  [
+                       {
+                           "area":  "frontend-design",
+                           "model_used":  "opencode-go/mimo-v2.5-pro",
+                           "status":  "completed",
+                           "started_at":  "2026-08-01T00:00:00Z",
+                           "completed_at":  "2026-08-01T01:00:00Z",
+                           "output_files":  [
+                                                "Specs/frontend-design-spec.md",
+                                                "Specs/mockup/notch-navbar-mockup.html",
+                                                "Specs/mockup/notch-sidebar-mockup.html"
+                                            ],
+                           "doubts":  [
+                                          {
+                                              "q":  "Soporte Link de Next.js o solo onTabChange?",
+                                              "priority":  "high",
+                                              "resolved":  "onTabChange + href opcional"
+                                          },
+                                          {
+                                              "q":  "d3-shape o pre-computar paths?",
+                                              "priority":  "high",
+                                              "resolved":  "d3-shape + d3-interpolate-path"
+                                          }
+                                      ],
+                           "notes":  "DOS mockups aprobados. Horizontal (navbar): recorte circular concÃ©ntrico (arco A sweep=0, rc=CIRCLE_R+7, centro y=6, gap 7px), fillet esquinas (phi=alpha+4Â°), PAD 8px lateral, bar blanco puro #FFFFFF 56px flush bottom radios 10/10, bisel 3D (highlight blanco 0.95 1.5px + sombra difusa translateY(3px) blur2 alpha 0.07), sombra cÃ­rculo pegada, app-content #F0F2F5, sin dark/glow/theme. Vertical (sidebar): misma geometrÃ­a rotada 90Â° (borde derecho, espejo xâ†’SWâˆ’x, arco sweep=1â†’0, cÃ­rculo sobresale derecha 22px), full-height 790px flush left, tabs compactos 60px+gap8 con header/footer, bisel 3D con translateX(3px), app-area #F0F2F5. Lecciones: curva original = curveBasis d3-shape (prof. 44.6 asimÃ©trica); sweep flags verificados empÃ­ricamente (horiz: 1=arriba, 0=abajo; rotado: 1=derecha, espejado 0=izquierda); bisel 3D = highlight nÃ­tido + sombra difusa (no lÃ­nea paralela)."
+                       },
+                       {
+                           "area":  "frontend",
+                           "model_used":  "opencode-go/mimo-v2.5-pro",
+                           "status":  "completed",
+                           "started_at":  "2026-08-06T00:00:00Z",
+                           "completed_at":  "2026-08-06T00:20:00Z",
+                           "output_files":  [
+                                                "src/components/notch-navbar/notch-navbar.tsx",
+                                                "src/components/notch-navbar/notch-circle.tsx",
+                                                "src/components/notch-navbar/notch-more-card.tsx",
+                                                "src/app/page.tsx",
+                                                "src/lib/notch/__tests__/notch-navbar.test.tsx",
+                                                "src/lib/notch/__tests__/notch-navbar-features.test.tsx"
+                                            ],
+                           "doubts":  [
+
+                                      ],
+                           "notes":  "FIX overflow More (bug reportado por usuario): con tabs.length \u003e maxVisible, el bar DEBE mostrar (maxVisible-1) tabs reales + More en el slot maxVisible-1 â†’ total maxVisible slots â†’ NUNCA re-dimensiona ni re-escala (cÃ­rculo queda 56px, sin shrink). Antes el More era un slot adicional (maxVisible+1) â†’ slots 74.8â†’62.3px â†’ auto-escala encogÃ­a cÃ­rculo a 50px â†’ bisel 3D fijo (1.5px+3px blur) e Ã­cono 24px fijo quedaban desproporcionados (\u0027border muy grueso, Ã­cono deforme\u0027). DiagnÃ³stico previo con explore: punto de ruptura en tabCount=6. Nuevo moreSlotIndex = maxVisible-1 usado en getBarIndex, keyboard, escape, click, circle y more-card. hiddenTabs = tabs.slice(maxVisible-1). Tests: 97/97 (5 nuevos de slot-sizing + 6 actualizados). Fix2: notch-circle.tsx span More con guard hiddenActiveIndex (circleIconActive solo si hiddenActiveIndex != null) - fix doble icono 9-puntos sobre tab activo. Tests 100/100 (3 nuevos)."
+                       }
+                   ]
 }

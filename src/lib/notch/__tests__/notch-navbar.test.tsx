@@ -226,6 +226,80 @@ describe('NotchNavbar — overflow slot sizing', () => {
   });
 });
 
+// ─── Circle icon visibility (More slot bug fix) ───────────────────────────────
+
+describe('NotchNavbar — circle icon visibility (More slot bug)', () => {
+  const circle = (container: HTMLElement): HTMLDivElement =>
+    container.querySelector<HTMLDivElement>('div[style*="will-change"]')!;
+
+  it('visible tab active (defaultActiveTabIndex=0) → More icon NOT visible in circle; active tab icon IS', () => {
+    const { container } = render(
+      <NotchNavbar tabs={sevenTabs} containerWidth={359} />,
+    );
+
+    const c = circle(container);
+    const spans = c.querySelectorAll(':scope > span');
+    expect(spans).toHaveLength(5);
+
+    // Exactly 1 span has circleIconActive
+    const activeSpans = Array.from(spans).filter((s) =>
+      s.className.includes('circleIconActive'),
+    );
+    expect(activeSpans).toHaveLength(1);
+
+    // That active span is the first one (Tab 0), not the last one (More slot)
+    expect(spans[0].className).toContain('circleIconActive');
+    // More slot (last span) must NOT be active
+    expect(spans[4].className).not.toContain('circleIconActive');
+  });
+
+  it('hidden tab active (select Tab 6) → More slot icon IS visible in circle', () => {
+    const onTabChange = vi.fn();
+    const { container } = render(
+      <NotchNavbar
+        tabs={sevenTabs}
+        containerWidth={359}
+        onTabChange={onTabChange}
+      />,
+    );
+
+    // Select hidden Tab 6 via More sheet
+    fireEvent.click(screen.getAllByRole('tab')[4]); // open More
+    fireEvent.click(screen.getAllByRole('menuitem')[2]); // Tab 6
+
+    expect(onTabChange).toHaveBeenCalledWith(sevenTabs[6], 6);
+
+    const c = circle(container);
+    const spans = c.querySelectorAll(':scope > span');
+    expect(spans).toHaveLength(5);
+
+    // Exactly 1 span has circleIconActive — the More slot (last)
+    const activeSpans = Array.from(spans).filter((s) =>
+      s.className.includes('circleIconActive'),
+    );
+    expect(activeSpans).toHaveLength(1);
+    expect(spans[4].className).toContain('circleIconActive');
+    // First span (Tab 0) must NOT be active
+    expect(spans[0].className).not.toContain('circleIconActive');
+  });
+
+  it('no overflow (5 tabs) → exactly 1 active icon in circle, no duplicate', () => {
+    const { container } = render(
+      <NotchNavbar tabs={sevenTabs.slice(0, 5)} containerWidth={390} />,
+    );
+
+    const c = circle(container);
+    const spans = c.querySelectorAll(':scope > span');
+    expect(spans).toHaveLength(5);
+
+    const activeSpans = Array.from(spans).filter((s) =>
+      s.className.includes('circleIconActive'),
+    );
+    expect(activeSpans).toHaveLength(1);
+    expect(spans[0].className).toContain('circleIconActive');
+  });
+});
+
 describe('NotchNavbar — guard', () => {
   it('1 tab → renders "Add at least 2 tabs" status, no tablist', () => {
     render(<NotchNavbar tabs={[sevenTabs[0]]} containerWidth={359} />);
