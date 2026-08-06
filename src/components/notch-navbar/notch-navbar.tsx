@@ -659,16 +659,16 @@ export function NotchNavbar({
         transform: 'translateX(-50%)',
       };
     }
-    // Vertical: LTR → card on left, RTL → card on right
+    // Vertical: card protrudes to the right (LTR) or left (RTL) of the navbar
     if (isRTL) {
       return {
-        right: -(8 + 240),
+        right: barSize + 8,
         top: 'var(--nn-more-pos)',
         transform: 'translateY(-50%)',
       };
     }
     return {
-      left: -(8 + 240),
+      left: barSize + 8,
       top: 'var(--nn-more-pos)',
       transform: 'translateY(-50%)',
     };

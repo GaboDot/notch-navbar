@@ -174,7 +174,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "tsconfig.json",
       "community_name": "include",
       "id": "tsconfig"
@@ -185,7 +185,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "compileroptions",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions"
@@ -196,7 +196,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "target",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_target"
@@ -207,7 +207,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "lib",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_lib"
@@ -218,7 +218,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "dom",
       "community_name": "compilerOptions",
       "id": "ref_dom"
@@ -229,7 +229,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "dom.iterable",
       "community_name": "compilerOptions",
       "id": "ref_dom_iterable"
@@ -240,7 +240,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "esnext",
       "community_name": "compilerOptions",
       "id": "ref_esnext"
@@ -251,7 +251,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "allowjs",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_allowjs"
@@ -262,7 +262,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "skiplibcheck",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_skiplibcheck"
@@ -273,7 +273,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "strict",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_strict"
@@ -284,7 +284,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "noemit",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_noemit"
@@ -295,7 +295,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "esmoduleinterop",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_esmoduleinterop"
@@ -306,7 +306,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "module",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_module"
@@ -317,7 +317,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "moduleresolution",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_moduleresolution"
@@ -328,7 +328,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "resolvejsonmodule",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_resolvejsonmodule"
@@ -339,7 +339,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "isolatedmodules",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_isolatedmodules"
@@ -350,7 +350,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "jsx",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_jsx"
@@ -361,7 +361,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "incremental",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_incremental"
@@ -372,7 +372,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "plugins",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_plugins"
@@ -383,7 +383,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 5,
+      "community": 4,
       "norm_label": "paths",
       "community_name": "compilerOptions",
       "id": "tsconfig_compileroptions_paths"
@@ -394,7 +394,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "include",
       "community_name": "include",
       "id": "tsconfig_include"
@@ -405,7 +405,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "next-env.d.ts",
       "community_name": "include",
       "id": "ref_next_env_d_ts"
@@ -416,7 +416,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "**/*.ts",
       "community_name": "include",
       "id": "ref_ts"
@@ -427,7 +427,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "**/*.tsx",
       "community_name": "include",
       "id": "ref_tsx"
@@ -438,7 +438,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": ".next/types/**/*.ts",
       "community_name": "include",
       "id": "ref_next_types_ts"
@@ -449,7 +449,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": ".next/dev/types/**/*.ts",
       "community_name": "include",
       "id": "ref_next_dev_types_ts"
@@ -460,7 +460,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "**/*.mts",
       "community_name": "include",
       "id": "ref_mts"
@@ -471,7 +471,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "exclude",
       "community_name": "include",
       "id": "tsconfig_exclude"
@@ -482,7 +482,7 @@
       "source_file": "tsconfig.json",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "node_modules",
       "community_name": "include",
       "id": "ref_node_modules"
@@ -624,7 +624,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "keywords",
       "id": "package_keywords"
     },
@@ -634,7 +634,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "notch",
       "id": "ref_notch"
     },
@@ -644,7 +644,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "navbar",
       "id": "ref_navbar"
     },
@@ -654,7 +654,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "tabbar",
       "id": "ref_tabbar"
     },
@@ -664,7 +664,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "sidebar",
       "id": "ref_sidebar"
     },
@@ -674,7 +674,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "navigation",
       "id": "ref_navigation"
     },
@@ -684,7 +684,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "svg",
       "id": "ref_svg"
     },
@@ -694,7 +694,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "animated",
       "id": "ref_animated"
     },
@@ -704,7 +704,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 9,
       "norm_label": "nextjs",
       "id": "ref_nextjs"
     },
@@ -834,7 +834,7 @@
       "source_file": "package.json",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "scripts",
       "id": "package_scripts"
     },
@@ -844,7 +844,7 @@
       "source_file": "package.json",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "dev",
       "id": "package_scripts_dev"
     },
@@ -854,7 +854,7 @@
       "source_file": "package.json",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "build",
       "id": "package_scripts_build"
     },
@@ -864,7 +864,7 @@
       "source_file": "package.json",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "build:lib",
       "id": "package_scripts_build_lib"
     },
@@ -874,7 +874,7 @@
       "source_file": "package.json",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "start",
       "id": "package_scripts_start"
     },
@@ -884,7 +884,7 @@
       "source_file": "package.json",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "lint",
       "id": "package_scripts_lint"
     },
@@ -894,7 +894,7 @@
       "source_file": "package.json",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "test",
       "id": "package_scripts_test"
     },
@@ -904,7 +904,7 @@
       "source_file": "package.json",
       "source_location": "L51",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "test:watch",
       "id": "package_scripts_test_watch"
     },
@@ -914,7 +914,7 @@
       "source_file": "package.json",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "coverage",
       "id": "package_scripts_coverage"
     },
@@ -924,7 +924,7 @@
       "source_file": "package.json",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 9,
+      "community": 8,
       "norm_label": "prepublishonly",
       "id": "package_scripts_prepublishonly"
     },
@@ -934,7 +934,7 @@
       "source_file": "package.json",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "peerdependencies",
       "id": "package_peerdependencies"
     },
@@ -944,7 +944,7 @@
       "source_file": "package.json",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "next",
       "id": "package_peerdependencies_next"
     },
@@ -954,7 +954,7 @@
       "source_file": "package.json",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "next",
       "id": "next"
     },
@@ -964,7 +964,7 @@
       "source_file": "package.json",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "react",
       "id": "package_peerdependencies_react"
     },
@@ -974,7 +974,7 @@
       "source_file": "package.json",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "react",
       "id": "react"
     },
@@ -984,7 +984,7 @@
       "source_file": "package.json",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "react-dom",
       "id": "package_peerdependencies_react_dom"
     },
@@ -994,7 +994,7 @@
       "source_file": "package.json",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "react-dom",
       "id": "react_dom"
     },
@@ -1004,7 +1004,7 @@
       "source_file": "package.json",
       "source_location": "L59",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "sass",
       "id": "package_peerdependencies_sass"
     },
@@ -1014,7 +1014,7 @@
       "source_file": "package.json",
       "source_location": "L59",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "sass",
       "id": "sass"
     },
@@ -1354,7 +1354,7 @@
       "source_file": "package.json",
       "source_location": "L79",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "next",
       "id": "package_devdependencies_next"
     },
@@ -1384,7 +1384,7 @@
       "source_file": "package.json",
       "source_location": "L81",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "react",
       "id": "package_devdependencies_react"
     },
@@ -1394,7 +1394,7 @@
       "source_file": "package.json",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "react-dom",
       "id": "package_devdependencies_react_dom"
     },
@@ -1404,7 +1404,7 @@
       "source_file": "package.json",
       "source_location": "L83",
       "_origin": "ast",
-      "community": 8,
+      "community": 7,
       "norm_label": "sass",
       "id": "package_devdependencies_sass"
     },
@@ -1564,7 +1564,7 @@
       "source_file": "src/components/notch-navbar/notch-more-card.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notch-more-card.tsx",
       "id": "src_components_notch_navbar_notch_more_card"
     },
@@ -1574,7 +1574,7 @@
       "source_file": "src/components/notch-navbar/notch-more-card.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notchmorecardprops",
       "id": "src_components_notch_navbar_notch_more_card_notchmorecardprops"
     },
@@ -1584,7 +1584,7 @@
       "source_file": "src/components/notch-navbar/notch-more-card.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notchmorecard()",
       "id": "src_components_notch_navbar_notch_more_card_notchmorecard"
     },
@@ -1594,7 +1594,7 @@
       "source_file": "src/components/notch-navbar/notch-navbar-helpers.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notch-navbar-helpers.tsx",
       "id": "src_components_notch_navbar_notch_navbar_helpers"
     },
@@ -1604,7 +1604,7 @@
       "source_file": "src/components/notch-navbar/notch-navbar-helpers.tsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "defaultmoreicon()",
       "id": "src_components_notch_navbar_notch_navbar_helpers_defaultmoreicon"
     },
@@ -1614,7 +1614,7 @@
       "source_file": "src/components/notch-navbar/notch-navbar-helpers.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "usestablecallback()",
       "id": "src_components_notch_navbar_notch_navbar_helpers_usestablecallback"
     },
@@ -1624,7 +1624,7 @@
       "source_file": "src/components/notch-navbar/notch-navbar-helpers.tsx",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "easeexpoout()",
       "id": "src_components_notch_navbar_notch_navbar_helpers_easeexpoout"
     },
@@ -1634,7 +1634,7 @@
       "source_file": "src/index.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "index.ts",
       "id": "src_index"
     },
@@ -1654,7 +1654,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "notch-navbar-features.test.tsx",
       "id": "src_lib_notch_tests_notch_navbar_features_test"
     },
@@ -1664,7 +1664,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "icon()",
       "id": "src_lib_notch_tests_notch_navbar_features_test_icon"
     },
@@ -1674,7 +1674,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "tabs",
       "id": "src_lib_notch_tests_notch_navbar_features_test_tabs"
     },
@@ -1684,7 +1684,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "seventabs",
       "id": "src_lib_notch_tests_notch_navbar_features_test_seventabs"
     },
@@ -1694,7 +1694,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "barpath()",
       "id": "src_lib_notch_tests_notch_navbar_features_test_barpath"
     },
@@ -1704,7 +1704,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "bevelpath()",
       "id": "src_lib_notch_tests_notch_navbar_features_test_bevelpath"
     },
@@ -1714,7 +1714,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "circle()",
       "id": "src_lib_notch_tests_notch_navbar_features_test_circle"
     },
@@ -1724,7 +1724,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar-features.test.tsx",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 4,
+      "community": 1,
       "norm_label": "tablist()",
       "id": "src_lib_notch_tests_notch_navbar_features_test_tablist"
     },
@@ -1734,7 +1734,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "paths-rtl.test.ts",
       "id": "src_lib_notch_tests_paths_rtl_test"
     },
@@ -1744,7 +1744,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "commands()",
       "id": "src_lib_notch_tests_paths_rtl_test_commands"
     },
@@ -1754,7 +1754,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "cmdcount()",
       "id": "src_lib_notch_tests_paths_rtl_test_cmdcount"
     },
@@ -1764,7 +1764,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "numbers()",
       "id": "src_lib_notch_tests_paths_rtl_test_numbers"
     },
@@ -1774,7 +1774,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "expectclose()",
       "id": "src_lib_notch_tests_paths_rtl_test_expectclose"
     },
@@ -1784,7 +1784,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "arcend()",
       "id": "src_lib_notch_tests_paths_rtl_test_arcend"
     },
@@ -1794,7 +1794,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "v_opts",
       "id": "src_lib_notch_tests_paths_rtl_test_v_opts"
     },
@@ -1804,7 +1804,7 @@
       "source_file": "src/lib/notch/__tests__/paths-rtl.test.ts",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "hw0",
       "id": "src_lib_notch_tests_paths_rtl_test_hw0"
     },
@@ -1814,7 +1814,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "paths.test.ts",
       "id": "src_lib_notch_tests_paths_test"
     },
@@ -1824,7 +1824,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "commands()",
       "id": "src_lib_notch_tests_paths_test_commands"
     },
@@ -1834,7 +1834,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "cmdcount()",
       "id": "src_lib_notch_tests_paths_test_cmdcount"
     },
@@ -1844,7 +1844,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "numbers()",
       "id": "src_lib_notch_tests_paths_test_numbers"
     },
@@ -1854,7 +1854,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "subpathstarts()",
       "id": "src_lib_notch_tests_paths_test_subpathstarts"
     },
@@ -1864,7 +1864,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L41",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "expectclose()",
       "id": "src_lib_notch_tests_paths_test_expectclose"
     },
@@ -1874,7 +1874,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "h_opts",
       "id": "src_lib_notch_tests_paths_test_h_opts"
     },
@@ -1884,7 +1884,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "v_opts",
       "id": "src_lib_notch_tests_paths_test_v_opts"
     },
@@ -1894,7 +1894,7 @@
       "source_file": "src/lib/notch/__tests__/paths.test.ts",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "norm_label": "hw0",
       "id": "src_lib_notch_tests_paths_test_hw0"
     },
@@ -1964,7 +1964,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "tsconfig.lib.json",
       "id": "tsconfig_lib"
     },
@@ -1974,7 +1974,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "extends",
       "id": "tsconfig_lib_extends"
     },
@@ -1984,7 +1984,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "./tsconfig.json",
       "id": "ref_tsconfig_json"
     },
@@ -1994,7 +1994,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "compileroptions",
       "id": "tsconfig_lib_compileroptions"
     },
@@ -2004,7 +2004,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "noemit",
       "id": "tsconfig_lib_compileroptions_noemit"
     },
@@ -2014,7 +2014,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "incremental",
       "id": "tsconfig_lib_compileroptions_incremental"
     },
@@ -2024,7 +2024,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "declaration",
       "id": "tsconfig_lib_compileroptions_declaration"
     },
@@ -2034,7 +2034,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "declarationmap",
       "id": "tsconfig_lib_compileroptions_declarationmap"
     },
@@ -2044,7 +2044,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "include",
       "id": "tsconfig_lib_include"
     },
@@ -2054,7 +2054,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "src/index.ts",
       "id": "ref_src_index_ts"
     },
@@ -2064,7 +2064,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "src/components/**/*.ts",
       "id": "ref_src_components_ts"
     },
@@ -2074,7 +2074,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "src/components/**/*.tsx",
       "id": "ref_src_components_tsx"
     },
@@ -2084,7 +2084,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "src/lib/**/*.ts",
       "id": "ref_src_lib_ts"
     },
@@ -2094,7 +2094,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "norm_label": "src/scss.d.ts",
       "id": "ref_src_scss_d_ts"
     },
@@ -2104,7 +2104,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "exclude",
       "id": "tsconfig_lib_exclude"
     },
@@ -2114,7 +2114,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "src/app",
       "id": "ref_src_app"
     },
@@ -2124,7 +2124,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "src/lib/notch/__tests__",
       "id": "ref_src_lib_notch_tests"
     },
@@ -2134,7 +2134,7 @@
       "source_file": "tsconfig.lib.json",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "norm_label": "src/test",
       "id": "ref_src_test"
     },
@@ -2174,7 +2174,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar.test.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notch-navbar.test.tsx",
       "id": "src_lib_notch_tests_notch_navbar_test"
     },
@@ -2184,7 +2184,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar.test.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "icon()",
       "id": "src_lib_notch_tests_notch_navbar_test_icon"
     },
@@ -2194,7 +2194,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar.test.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "tabs",
       "id": "src_lib_notch_tests_notch_navbar_test_tabs"
     },
@@ -2204,7 +2204,7 @@
       "source_file": "src/lib/notch/__tests__/notch-navbar.test.tsx",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "seventabs",
       "id": "src_lib_notch_tests_notch_navbar_test_seventabs"
     },
@@ -2214,7 +2214,7 @@
       "source_file": "src/components/notch-navbar/notch-circle.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notch-circle.tsx",
       "id": "src_components_notch_navbar_notch_circle"
     },
@@ -2224,7 +2224,7 @@
       "source_file": "src/components/notch-navbar/notch-circle.tsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notchcircleprops",
       "id": "src_components_notch_navbar_notch_circle_notchcircleprops"
     },
@@ -2234,69 +2234,9 @@
       "source_file": "src/components/notch-navbar/notch-circle.tsx",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "norm_label": "notchcircle()",
       "id": "src_components_notch_navbar_notch_circle_notchcircle"
-    },
-    {
-      "label": "notch-navbar-more-button.test.tsx",
-      "file_type": "code",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "notch-navbar-more-button.test.tsx",
-      "id": "src_lib_notch_tests_notch_navbar_more_button_test"
-    },
-    {
-      "label": "icon()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "icon()",
-      "id": "src_lib_notch_tests_notch_navbar_more_button_test_icon"
-    },
-    {
-      "label": "sevenTabs",
-      "file_type": "code",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "seventabs",
-      "id": "src_lib_notch_tests_notch_navbar_more_button_test_seventabs"
-    },
-    {
-      "label": "circle()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "circle()",
-      "id": "src_lib_notch_tests_notch_navbar_more_button_test_circle"
-    },
-    {
-      "label": "slotCenter()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "slotcenter()",
-      "id": "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter"
-    },
-    {
-      "label": "slotLeft()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "slotleft()",
-      "id": "src_lib_notch_tests_notch_navbar_more_button_test_slotleft"
     },
     {
       "label": "page.tsx",
@@ -2304,9 +2244,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_app_page",
       "community": 11,
-      "norm_label": "page.tsx"
+      "norm_label": "page.tsx",
+      "id": "src_app_page"
     },
     {
       "label": "ICON_POOL",
@@ -2314,9 +2254,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_app_page_icon_pool",
       "community": 11,
-      "norm_label": "icon_pool"
+      "norm_label": "icon_pool",
+      "id": "src_app_page_icon_pool"
     },
     {
       "label": "makeTabs()",
@@ -2324,9 +2264,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "src_app_page_maketabs",
       "community": 11,
-      "norm_label": "maketabs()"
+      "norm_label": "maketabs()",
+      "id": "src_app_page_maketabs"
     },
     {
       "label": "StatusBar()",
@@ -2334,9 +2274,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "src_app_page_statusbar",
       "community": 11,
-      "norm_label": "statusbar()"
+      "norm_label": "statusbar()",
+      "id": "src_app_page_statusbar"
     },
     {
       "label": "CardContent()",
@@ -2344,9 +2284,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "src_app_page_cardcontent",
       "community": 11,
-      "norm_label": "cardcontent()"
+      "norm_label": "cardcontent()",
+      "id": "src_app_page_cardcontent"
     },
     {
       "label": "PlaygroundPage()",
@@ -2354,9 +2294,299 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L98",
       "_origin": "ast",
-      "id": "src_app_page_playgroundpage",
       "community": 11,
-      "norm_label": "playgroundpage()"
+      "norm_label": "playgroundpage()",
+      "id": "src_app_page_playgroundpage"
+    },
+    {
+      "label": "notch-tab-item.tsx",
+      "file_type": "code",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "notch-tab-item.tsx",
+      "id": "src_components_notch_navbar_notch_tab_item"
+    },
+    {
+      "label": "NotchTabItemProps",
+      "file_type": "code",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "notchtabitemprops",
+      "id": "src_components_notch_navbar_notch_tab_item_notchtabitemprops"
+    },
+    {
+      "label": "NotchTabItem()",
+      "file_type": "code",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "notchtabitem()",
+      "id": "src_components_notch_navbar_notch_tab_item_notchtabitem"
+    },
+    {
+      "label": "paths.ts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "paths.ts",
+      "id": "src_lib_notch_paths"
+    },
+    {
+      "label": "cutoutH()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutouth()",
+      "id": "src_lib_notch_paths_cutouth"
+    },
+    {
+      "label": "cutoutV()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L94",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutoutv()",
+      "id": "src_lib_notch_paths_cutoutv"
+    },
+    {
+      "label": "CutoutHOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L136",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutouthopts",
+      "id": "src_lib_notch_paths_cutouthopts"
+    },
+    {
+      "label": "BarHOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L143",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "barhopts",
+      "id": "src_lib_notch_paths_barhopts"
+    },
+    {
+      "label": "BevelHOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L153",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "bevelhopts",
+      "id": "src_lib_notch_paths_bevelhopts"
+    },
+    {
+      "label": "CutoutVOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L162",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutoutvopts",
+      "id": "src_lib_notch_paths_cutoutvopts"
+    },
+    {
+      "label": "BarVOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L170",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "barvopts",
+      "id": "src_lib_notch_paths_barvopts"
+    },
+    {
+      "label": "BevelVOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L180",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "bevelvopts",
+      "id": "src_lib_notch_paths_bevelvopts"
+    },
+    {
+      "label": "cutoutBoundaryH()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L193",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutoutboundaryh()",
+      "id": "src_lib_notch_paths_cutoutboundaryh"
+    },
+    {
+      "label": "barPathH()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L202",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "barpathh()",
+      "id": "src_lib_notch_paths_barpathh"
+    },
+    {
+      "label": "bevelPathH()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L228",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "bevelpathh()",
+      "id": "src_lib_notch_paths_bevelpathh"
+    },
+    {
+      "label": "cutoutBoundaryV()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L249",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutoutboundaryv()",
+      "id": "src_lib_notch_paths_cutoutboundaryv"
+    },
+    {
+      "label": "barPathV()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L258",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "barpathv()",
+      "id": "src_lib_notch_paths_barpathv"
+    },
+    {
+      "label": "bevelPathV()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L283",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "bevelpathv()",
+      "id": "src_lib_notch_paths_bevelpathv"
+    },
+    {
+      "label": "cutoutVRTL()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L323",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutoutvrtl()",
+      "id": "src_lib_notch_paths_cutoutvrtl"
+    },
+    {
+      "label": "BarVRTLOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L363",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "barvrtlopts",
+      "id": "src_lib_notch_paths_barvrtlopts"
+    },
+    {
+      "label": "BevelVRTLOpts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L372",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "bevelvrtlopts",
+      "id": "src_lib_notch_paths_bevelvrtlopts"
+    },
+    {
+      "label": "cutoutBoundaryVRTL()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L384",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "cutoutboundaryvrtl()",
+      "id": "src_lib_notch_paths_cutoutboundaryvrtl"
+    },
+    {
+      "label": "barPathVRTL()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L393",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "barpathvrtl()",
+      "id": "src_lib_notch_paths_barpathvrtl"
+    },
+    {
+      "label": "bevelPathVRTL()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L416",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "bevelpathvrtl()",
+      "id": "src_lib_notch_paths_bevelpathvrtl"
+    },
+    {
+      "label": "getTabPositions()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/paths.ts",
+      "source_location": "L460",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "gettabpositions()",
+      "id": "src_lib_notch_paths_gettabpositions"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "src/lib/notch/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "types.ts",
+      "id": "src_lib_notch_types"
+    },
+    {
+      "label": "Orientation",
+      "file_type": "code",
+      "source_file": "src/lib/notch/types.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "orientation",
+      "id": "src_lib_notch_types_orientation"
+    },
+    {
+      "label": "NotchTab",
+      "file_type": "code",
+      "source_file": "src/lib/notch/types.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "notchtab",
+      "id": "src_lib_notch_types_notchtab"
+    },
+    {
+      "label": "NotchNavbarProps",
+      "file_type": "code",
+      "source_file": "src/lib/notch/types.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 1,
+      "norm_label": "notchnavbarprops",
+      "id": "src_lib_notch_types_notchnavbarprops"
     },
     {
       "label": "notch-navbar.tsx",
@@ -2365,7 +2595,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_notch_navbar_notch_navbar",
-      "community": 2,
+      "community": 1,
       "norm_label": "notch-navbar.tsx"
     },
     {
@@ -2379,294 +2609,64 @@
       "norm_label": "notchnavbar()"
     },
     {
-      "label": "notch-tab-item.tsx",
+      "label": "notch-navbar-more-button.test.tsx",
       "file_type": "code",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_notch_navbar_notch_tab_item",
-      "community": 2,
-      "norm_label": "notch-tab-item.tsx"
+      "id": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "community": 1,
+      "norm_label": "notch-navbar-more-button.test.tsx"
     },
     {
-      "label": "NotchTabItemProps",
+      "label": "icon()",
       "file_type": "code",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
-      "source_location": "L7",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L12",
       "_origin": "ast",
-      "id": "src_components_notch_navbar_notch_tab_item_notchtabitemprops",
-      "community": 2,
-      "norm_label": "notchtabitemprops"
+      "id": "src_lib_notch_tests_notch_navbar_more_button_test_icon",
+      "community": 1,
+      "norm_label": "icon()"
     },
     {
-      "label": "NotchTabItem()",
+      "label": "sevenTabs",
       "file_type": "code",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_lib_notch_tests_notch_navbar_more_button_test_seventabs",
+      "community": 1,
+      "norm_label": "seventabs"
+    },
+    {
+      "label": "circle()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_lib_notch_tests_notch_navbar_more_button_test_circle",
+      "community": 1,
+      "norm_label": "circle()"
+    },
+    {
+      "label": "slotCenter()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter",
+      "community": 1,
+      "norm_label": "slotcenter()"
+    },
+    {
+      "label": "slotLeft()",
+      "file_type": "code",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "src_components_notch_navbar_notch_tab_item_notchtabitem",
-      "community": 2,
-      "norm_label": "notchtabitem()"
-    },
-    {
-      "label": "paths.ts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths",
+      "id": "src_lib_notch_tests_notch_navbar_more_button_test_slotleft",
       "community": 1,
-      "norm_label": "paths.ts"
-    },
-    {
-      "label": "cutoutH()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutouth",
-      "community": 1,
-      "norm_label": "cutouth()"
-    },
-    {
-      "label": "cutoutV()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L94",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutoutv",
-      "community": 1,
-      "norm_label": "cutoutv()"
-    },
-    {
-      "label": "CutoutHOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L136",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutouthopts",
-      "community": 1,
-      "norm_label": "cutouthopts"
-    },
-    {
-      "label": "BarHOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L143",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_barhopts",
-      "community": 1,
-      "norm_label": "barhopts"
-    },
-    {
-      "label": "BevelHOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L153",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_bevelhopts",
-      "community": 1,
-      "norm_label": "bevelhopts"
-    },
-    {
-      "label": "CutoutVOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L162",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutoutvopts",
-      "community": 1,
-      "norm_label": "cutoutvopts"
-    },
-    {
-      "label": "BarVOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L170",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_barvopts",
-      "community": 1,
-      "norm_label": "barvopts"
-    },
-    {
-      "label": "BevelVOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L180",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_bevelvopts",
-      "community": 1,
-      "norm_label": "bevelvopts"
-    },
-    {
-      "label": "cutoutBoundaryH()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L193",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutoutboundaryh",
-      "community": 1,
-      "norm_label": "cutoutboundaryh()"
-    },
-    {
-      "label": "barPathH()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L202",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_barpathh",
-      "community": 1,
-      "norm_label": "barpathh()"
-    },
-    {
-      "label": "bevelPathH()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L228",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_bevelpathh",
-      "community": 1,
-      "norm_label": "bevelpathh()"
-    },
-    {
-      "label": "cutoutBoundaryV()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L249",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutoutboundaryv",
-      "community": 1,
-      "norm_label": "cutoutboundaryv()"
-    },
-    {
-      "label": "barPathV()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L258",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_barpathv",
-      "community": 1,
-      "norm_label": "barpathv()"
-    },
-    {
-      "label": "bevelPathV()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L283",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_bevelpathv",
-      "community": 1,
-      "norm_label": "bevelpathv()"
-    },
-    {
-      "label": "cutoutVRTL()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L323",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutoutvrtl",
-      "community": 1,
-      "norm_label": "cutoutvrtl()"
-    },
-    {
-      "label": "BarVRTLOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L363",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_barvrtlopts",
-      "community": 1,
-      "norm_label": "barvrtlopts"
-    },
-    {
-      "label": "BevelVRTLOpts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L372",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_bevelvrtlopts",
-      "community": 1,
-      "norm_label": "bevelvrtlopts"
-    },
-    {
-      "label": "cutoutBoundaryVRTL()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L384",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_cutoutboundaryvrtl",
-      "community": 1,
-      "norm_label": "cutoutboundaryvrtl()"
-    },
-    {
-      "label": "barPathVRTL()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L393",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_barpathvrtl",
-      "community": 1,
-      "norm_label": "barpathvrtl()"
-    },
-    {
-      "label": "bevelPathVRTL()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L416",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_bevelpathvrtl",
-      "community": 1,
-      "norm_label": "bevelpathvrtl()"
-    },
-    {
-      "label": "getTabPositions()",
-      "file_type": "code",
-      "source_file": "src/lib/notch/paths.ts",
-      "source_location": "L460",
-      "_origin": "ast",
-      "id": "src_lib_notch_paths_gettabpositions",
-      "community": 1,
-      "norm_label": "gettabpositions()"
-    },
-    {
-      "label": "types.ts",
-      "file_type": "code",
-      "source_file": "src/lib/notch/types.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_lib_notch_types",
-      "community": 2,
-      "norm_label": "types.ts"
-    },
-    {
-      "label": "Orientation",
-      "file_type": "code",
-      "source_file": "src/lib/notch/types.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "src_lib_notch_types_orientation",
-      "community": 2,
-      "norm_label": "orientation"
-    },
-    {
-      "label": "NotchTab",
-      "file_type": "code",
-      "source_file": "src/lib/notch/types.ts",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "src_lib_notch_types_notchtab",
-      "community": 2,
-      "norm_label": "notchtab"
-    },
-    {
-      "label": "NotchNavbarProps",
-      "file_type": "code",
-      "source_file": "src/lib/notch/types.ts",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "src_lib_notch_types_notchnavbarprops",
-      "community": 2,
-      "norm_label": "notchnavbarprops"
+      "norm_label": "slotleft()"
     }
   ],
   "links": [
@@ -2757,9 +2757,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_lib_notch_constants",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_constants"
     },
     {
       "relation": "imports_from",
@@ -2792,9 +2792,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_constants",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_constants"
     },
     {
       "relation": "imports",
@@ -2804,9 +2804,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_lib_notch_constants_default_colors",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_constants_default_colors"
     },
     {
       "relation": "imports",
@@ -5721,130 +5721,15 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_components_notch_navbar_notch_navbar"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_components_notch_navbar_notch_navbar_notchnavbar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_tests_notch_navbar_more_button_test_circle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_tests_notch_navbar_more_button_test_icon"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_tests_notch_navbar_more_button_test_seventabs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_tests_notch_navbar_more_button_test_slotleft"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_types"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
-      "target": "src_lib_notch_types_notchtab"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "src_lib_notch_tests_notch_navbar_more_button_test_slotleft",
-      "target": "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/app/page.tsx",
       "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_app_page_cardcontent",
-      "confidence_score": 1.0
+      "target": "src_app_page_cardcontent"
     },
     {
       "relation": "contains",
@@ -5853,9 +5738,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_app_page_icon_pool",
-      "confidence_score": 1.0
+      "target": "src_app_page_icon_pool"
     },
     {
       "relation": "contains",
@@ -5864,9 +5749,9 @@
       "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_app_page_maketabs",
-      "confidence_score": 1.0
+      "target": "src_app_page_maketabs"
     },
     {
       "relation": "contains",
@@ -5875,9 +5760,9 @@
       "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_app_page_playgroundpage",
-      "confidence_score": 1.0
+      "target": "src_app_page_playgroundpage"
     },
     {
       "relation": "contains",
@@ -5886,9 +5771,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_app_page_statusbar",
-      "confidence_score": 1.0
+      "target": "src_app_page_statusbar"
     },
     {
       "relation": "imports_from",
@@ -5898,9 +5783,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_components_notch_navbar_notch_navbar",
-      "confidence_score": 1.0
+      "target": "src_components_notch_navbar_notch_navbar"
     },
     {
       "relation": "imports",
@@ -5910,9 +5795,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "confidence_score": 1.0
+      "target": "src_components_notch_navbar_notch_navbar_notchnavbar"
     },
     {
       "relation": "imports_from",
@@ -5922,9 +5807,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_lib_notch_types",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_types"
     },
     {
       "relation": "imports",
@@ -5934,9 +5819,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_lib_notch_types_notchtab",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_types_notchtab"
     },
     {
       "relation": "imports",
@@ -5946,9 +5831,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page",
-      "target": "src_lib_notch_types_orientation",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_types_orientation"
     },
     {
       "relation": "references",
@@ -5970,20 +5855,9 @@
       "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_app_page_playgroundpage",
-      "target": "src_app_page_maketabs",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "confidence_score": 1.0
+      "target": "src_app_page_maketabs"
     },
     {
       "relation": "imports_from",
@@ -5996,6 +5870,64 @@
       "source": "src_components_notch_navbar_notch_navbar",
       "target": "src_components_notch_navbar_notch_tab_item",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_components_notch_navbar_notch_tab_item",
+      "target": "src_components_notch_navbar_notch_tab_item_notchtabitem"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_components_notch_navbar_notch_tab_item",
+      "target": "src_components_notch_navbar_notch_tab_item_notchtabitemprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_components_notch_navbar_notch_tab_item",
+      "target": "src_lib_notch_types"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_components_notch_navbar_notch_tab_item",
+      "target": "src_lib_notch_types_notchtab"
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "src_components_notch_navbar_notch_tab_item_notchtabitemprops",
+      "target": "src_lib_notch_types_notchtab"
     },
     {
       "relation": "imports",
@@ -6022,277 +5954,15 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_barpathh",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_barpathv",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_barpathvrtl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_bevelpathh",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_bevelpathv",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_bevelpathvrtl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_paths_gettabpositions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_types",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_types_notchnavbarprops",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar",
-      "target": "src_lib_notch_types_notchtab",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L213",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_barpathh"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L222",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_barpathv"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L222",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_barpathvrtl"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L214",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_bevelpathh"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L224",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_bevelpathv"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L224",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_bevelpathvrtl"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
-      "source_location": "L192",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "target": "src_lib_notch_paths_gettabpositions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_tab_item",
-      "target": "src_components_notch_navbar_notch_tab_item_notchtabitem",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_tab_item",
-      "target": "src_components_notch_navbar_notch_tab_item_notchtabitemprops",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_tab_item",
-      "target": "src_lib_notch_types",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_tab_item",
-      "target": "src_lib_notch_types_notchtab",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/notch-navbar/notch-tab-item.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_notch_navbar_notch_tab_item_notchtabitemprops",
-      "target": "src_lib_notch_types_notchtab",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/notch/paths.ts",
       "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_barhopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_barhopts"
     },
     {
       "relation": "contains",
@@ -6301,9 +5971,9 @@
       "source_location": "L202",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_barpathh",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_barpathh"
     },
     {
       "relation": "contains",
@@ -6312,9 +5982,9 @@
       "source_location": "L258",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_barpathv",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_barpathv"
     },
     {
       "relation": "contains",
@@ -6323,9 +5993,9 @@
       "source_location": "L393",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_barpathvrtl",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_barpathvrtl"
     },
     {
       "relation": "contains",
@@ -6334,9 +6004,9 @@
       "source_location": "L170",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_barvopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_barvopts"
     },
     {
       "relation": "contains",
@@ -6345,9 +6015,9 @@
       "source_location": "L363",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_barvrtlopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_barvrtlopts"
     },
     {
       "relation": "contains",
@@ -6356,9 +6026,9 @@
       "source_location": "L153",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_bevelhopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_bevelhopts"
     },
     {
       "relation": "contains",
@@ -6367,9 +6037,9 @@
       "source_location": "L228",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_bevelpathh",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_bevelpathh"
     },
     {
       "relation": "contains",
@@ -6378,9 +6048,9 @@
       "source_location": "L283",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_bevelpathv",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_bevelpathv"
     },
     {
       "relation": "contains",
@@ -6389,9 +6059,9 @@
       "source_location": "L416",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_bevelpathvrtl",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_bevelpathvrtl"
     },
     {
       "relation": "contains",
@@ -6400,9 +6070,9 @@
       "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_bevelvopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_bevelvopts"
     },
     {
       "relation": "contains",
@@ -6411,9 +6081,9 @@
       "source_location": "L372",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_bevelvrtlopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_bevelvrtlopts"
     },
     {
       "relation": "contains",
@@ -6422,9 +6092,9 @@
       "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutoutboundaryh",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutboundaryh"
     },
     {
       "relation": "contains",
@@ -6433,9 +6103,9 @@
       "source_location": "L249",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutoutboundaryv",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutboundaryv"
     },
     {
       "relation": "contains",
@@ -6444,9 +6114,9 @@
       "source_location": "L384",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutoutboundaryvrtl",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutboundaryvrtl"
     },
     {
       "relation": "contains",
@@ -6455,9 +6125,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutouth",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutouth"
     },
     {
       "relation": "contains",
@@ -6466,9 +6136,9 @@
       "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutouthopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutouthopts"
     },
     {
       "relation": "contains",
@@ -6477,9 +6147,9 @@
       "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutoutv",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutv"
     },
     {
       "relation": "contains",
@@ -6488,9 +6158,9 @@
       "source_location": "L162",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutoutvopts",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutvopts"
     },
     {
       "relation": "contains",
@@ -6499,9 +6169,9 @@
       "source_location": "L323",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_cutoutvrtl",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutvrtl"
     },
     {
       "relation": "contains",
@@ -6510,9 +6180,9 @@
       "source_location": "L460",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths",
-      "target": "src_lib_notch_paths_gettabpositions",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_gettabpositions"
     },
     {
       "relation": "calls",
@@ -6522,9 +6192,9 @@
       "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_barpathh",
-      "target": "src_lib_notch_paths_cutouth",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutouth"
     },
     {
       "relation": "calls",
@@ -6534,9 +6204,9 @@
       "source_location": "L233",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_bevelpathh",
-      "target": "src_lib_notch_paths_cutouth",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutouth"
     },
     {
       "relation": "calls",
@@ -6546,9 +6216,9 @@
       "source_location": "L195",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_cutoutboundaryh",
-      "target": "src_lib_notch_paths_cutouth",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutouth"
     },
     {
       "relation": "calls",
@@ -6558,9 +6228,9 @@
       "source_location": "L274",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_barpathv",
-      "target": "src_lib_notch_paths_cutoutv",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutv"
     },
     {
       "relation": "calls",
@@ -6570,8 +6240,56 @@
       "source_location": "L251",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_cutoutboundaryv",
-      "target": "src_lib_notch_paths_cutoutv",
+      "target": "src_lib_notch_paths_cutoutv"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_barpathh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_bevelpathh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_barpathv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_bevelpathv",
       "confidence_score": 1.0
     },
     {
@@ -6582,9 +6300,9 @@
       "source_location": "L407",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_barpathvrtl",
-      "target": "src_lib_notch_paths_cutoutvrtl",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_paths_cutoutvrtl"
     },
     {
       "relation": "calls",
@@ -6594,8 +6312,68 @@
       "source_location": "L386",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_paths_cutoutboundaryvrtl",
-      "target": "src_lib_notch_paths_cutoutvrtl",
+      "target": "src_lib_notch_paths_cutoutvrtl"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_barpathvrtl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_bevelpathvrtl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_paths_gettabpositions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_types",
       "confidence_score": 1.0
     },
     {
@@ -6605,9 +6383,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_types",
-      "target": "src_lib_notch_types_notchnavbarprops",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_types_notchnavbarprops"
     },
     {
       "relation": "contains",
@@ -6616,9 +6394,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_types",
-      "target": "src_lib_notch_types_notchtab",
-      "confidence_score": 1.0
+      "target": "src_lib_notch_types_notchtab"
     },
     {
       "relation": "contains",
@@ -6627,11 +6405,149 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "src_lib_notch_types",
-      "target": "src_lib_notch_types_orientation",
+      "target": "src_lib_notch_types_orientation"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_types_notchtab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_types_notchtab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_lib_notch_types_notchnavbarprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/notch-navbar/notch-navbar.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_notch_navbar_notch_navbar",
+      "target": "src_components_notch_navbar_notch_navbar_notchnavbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_components_notch_navbar_notch_navbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_components_notch_navbar_notch_navbar_notchnavbar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_tests_notch_navbar_more_button_test_circle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_tests_notch_navbar_more_button_test_icon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_tests_notch_navbar_more_button_test_seventabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test",
+      "target": "src_lib_notch_tests_notch_navbar_more_button_test_slotleft",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/notch/__tests__/notch-navbar-more-button.test.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_notch_tests_notch_navbar_more_button_test_slotleft",
+      "target": "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter",
       "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d792b55d954ae8340f09d5f3483015992985fb6f"
+  "built_at_commit": "313674a63b3666290fc2bf19f54b1ce24b358fb6"
 }

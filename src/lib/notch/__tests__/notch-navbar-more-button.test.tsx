@@ -187,6 +187,61 @@ describe('NotchNavbar — More button with notch', () => {
   });
 });
 
+// ─── Vertical card position tests ──────────────────────────────────────────
+
+describe('NotchNavbar — vertical card position', () => {
+  const VERTICAL_BAR = 56; // BAR_SIZE_DEFAULT
+
+  it('vertical LTR: card has left = barSize + 8, uses --nn-more-pos + translateY', () => {
+    render(
+      <NotchNavbar tabs={sevenTabs} containerWidth={359} orientation="vertical" />,
+    );
+
+    fireEvent.click(screen.getAllByRole('tab')[4]); // open More
+
+    const card = screen.getByRole('menu');
+    const style = card.getAttribute('style') ?? '';
+    expect(style).toContain(`left: ${VERTICAL_BAR + 8}px`);
+    expect(style).toContain('var(--nn-more-pos)');
+    expect(style).toContain('translateY(-50%)');
+    // Must NOT have negative left
+    expect(style).not.toContain('left: -');
+  });
+
+  it('vertical RTL: card has right = barSize + 8, uses --nn-more-pos + translateY', () => {
+    render(
+      <NotchNavbar
+        tabs={sevenTabs}
+        containerWidth={359}
+        orientation="vertical"
+        dir="rtl"
+      />,
+    );
+
+    fireEvent.click(screen.getAllByRole('tab')[4]); // open More
+
+    const card = screen.getByRole('menu');
+    const style = card.getAttribute('style') ?? '';
+    expect(style).toContain(`right: ${VERTICAL_BAR + 8}px`);
+    expect(style).toContain('var(--nn-more-pos)');
+    expect(style).toContain('translateY(-50%)');
+    // Must NOT have negative right
+    expect(style).not.toContain('right: -');
+  });
+
+  it('horizontal regression: card still uses left + translateX(-50%)', () => {
+    render(<NotchNavbar tabs={sevenTabs} containerWidth={359} />);
+
+    fireEvent.click(screen.getAllByRole('tab')[4]);
+
+    const card = screen.getByRole('menu');
+    const style = card.getAttribute('style') ?? '';
+    expect(style).toContain('var(--nn-more-pos)');
+    expect(style).toContain('translateX(-50%)');
+    expect(style).toContain('bottom:');
+  });
+});
+
 // ─── Circle position tests (imperative style.left) ─────────────────────────
 
 describe('NotchNavbar — circle position after More interactions', () => {
