@@ -1,6 +1,6 @@
 {
   "name": "notch-navbar",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Animated tab bar / sidebar with sliding SVG notch cutout + concentric circle indicator for React/Next.js",
   "license": "MIT",
   "author": "gabodot",
