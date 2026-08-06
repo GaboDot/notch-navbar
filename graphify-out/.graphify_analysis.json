@@ -44,48 +44,7 @@
       "vitest_coverage_v8"
     ],
     "1": [
-      "package_devdependencies_react",
-      "react",
-      "src_components_notch_navbar_notch_circle",
-      "src_components_notch_navbar_notch_circle_notchcircle",
-      "src_components_notch_navbar_notch_circle_notchcircleprops",
-      "src_components_notch_navbar_notch_more_card",
-      "src_components_notch_navbar_notch_more_card_notchmorecard",
-      "src_components_notch_navbar_notch_more_card_notchmorecardprops",
-      "src_components_notch_navbar_notch_navbar",
-      "src_components_notch_navbar_notch_navbar_helpers",
-      "src_components_notch_navbar_notch_navbar_helpers_defaultmoreicon",
-      "src_components_notch_navbar_notch_navbar_helpers_easeexpoout",
-      "src_components_notch_navbar_notch_navbar_helpers_usestablecallback",
       "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "src_components_notch_navbar_notch_tab_item",
-      "src_components_notch_navbar_notch_tab_item_notchtabitem",
-      "src_components_notch_navbar_notch_tab_item_notchtabitemprops",
-      "src_index",
-      "src_lib_notch_tests_notch_navbar_features_test",
-      "src_lib_notch_tests_notch_navbar_features_test_barpath",
-      "src_lib_notch_tests_notch_navbar_features_test_bevelpath",
-      "src_lib_notch_tests_notch_navbar_features_test_circle",
-      "src_lib_notch_tests_notch_navbar_features_test_icon",
-      "src_lib_notch_tests_notch_navbar_features_test_seventabs",
-      "src_lib_notch_tests_notch_navbar_features_test_tablist",
-      "src_lib_notch_tests_notch_navbar_features_test_tabs",
-      "src_lib_notch_tests_notch_navbar_more_button_test",
-      "src_lib_notch_tests_notch_navbar_more_button_test_circle",
-      "src_lib_notch_tests_notch_navbar_more_button_test_icon",
-      "src_lib_notch_tests_notch_navbar_more_button_test_seventabs",
-      "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter",
-      "src_lib_notch_tests_notch_navbar_more_button_test_slotleft",
-      "src_lib_notch_tests_notch_navbar_test",
-      "src_lib_notch_tests_notch_navbar_test_icon",
-      "src_lib_notch_tests_notch_navbar_test_seventabs",
-      "src_lib_notch_tests_notch_navbar_test_tabs",
-      "src_lib_notch_types",
-      "src_lib_notch_types_notchnavbarprops",
-      "src_lib_notch_types_notchtab",
-      "src_lib_notch_types_orientation"
-    ],
-    "2": [
       "src_lib_notch_paths",
       "src_lib_notch_paths_barhopts",
       "src_lib_notch_paths_barpathh",
@@ -126,6 +85,37 @@
       "src_lib_notch_tests_paths_test_subpathstarts",
       "src_lib_notch_tests_paths_test_v_opts"
     ],
+    "2": [
+      "src_components_notch_navbar_notch_circle",
+      "src_components_notch_navbar_notch_circle_notchcircle",
+      "src_components_notch_navbar_notch_circle_notchcircleprops",
+      "src_components_notch_navbar_notch_more_card",
+      "src_components_notch_navbar_notch_more_card_notchmorecard",
+      "src_components_notch_navbar_notch_more_card_notchmorecardprops",
+      "src_components_notch_navbar_notch_navbar",
+      "src_components_notch_navbar_notch_navbar_helpers",
+      "src_components_notch_navbar_notch_navbar_helpers_defaultmoreicon",
+      "src_components_notch_navbar_notch_navbar_helpers_easeexpoout",
+      "src_components_notch_navbar_notch_navbar_helpers_usestablecallback",
+      "src_components_notch_navbar_notch_tab_item",
+      "src_components_notch_navbar_notch_tab_item_notchtabitem",
+      "src_components_notch_navbar_notch_tab_item_notchtabitemprops",
+      "src_index",
+      "src_lib_notch_tests_notch_navbar_more_button_test",
+      "src_lib_notch_tests_notch_navbar_more_button_test_circle",
+      "src_lib_notch_tests_notch_navbar_more_button_test_icon",
+      "src_lib_notch_tests_notch_navbar_more_button_test_seventabs",
+      "src_lib_notch_tests_notch_navbar_more_button_test_slotcenter",
+      "src_lib_notch_tests_notch_navbar_more_button_test_slotleft",
+      "src_lib_notch_tests_notch_navbar_test",
+      "src_lib_notch_tests_notch_navbar_test_icon",
+      "src_lib_notch_tests_notch_navbar_test_seventabs",
+      "src_lib_notch_tests_notch_navbar_test_tabs",
+      "src_lib_notch_types",
+      "src_lib_notch_types_notchnavbarprops",
+      "src_lib_notch_types_notchtab",
+      "src_lib_notch_types_orientation"
+    ],
     "3": [
       "package",
       "package_author",
@@ -151,6 +141,27 @@
       "ref_screenshots"
     ],
     "4": [
+      "package_devdependencies_react",
+      "package_keywords",
+      "react",
+      "ref_animated",
+      "ref_navbar",
+      "ref_navigation",
+      "ref_nextjs",
+      "ref_notch",
+      "ref_sidebar",
+      "ref_svg",
+      "ref_tabbar",
+      "src_lib_notch_tests_notch_navbar_features_test",
+      "src_lib_notch_tests_notch_navbar_features_test_barpath",
+      "src_lib_notch_tests_notch_navbar_features_test_bevelpath",
+      "src_lib_notch_tests_notch_navbar_features_test_circle",
+      "src_lib_notch_tests_notch_navbar_features_test_icon",
+      "src_lib_notch_tests_notch_navbar_features_test_seventabs",
+      "src_lib_notch_tests_notch_navbar_features_test_tablist",
+      "src_lib_notch_tests_notch_navbar_features_test_tabs"
+    ],
+    "5": [
       "ref_dom",
       "ref_dom_iterable",
       "ref_esnext",
@@ -171,7 +182,7 @@
       "tsconfig_compileroptions_strict",
       "tsconfig_compileroptions_target"
     ],
-    "5": [
+    "6": [
       "ref_mts",
       "ref_next_dev_types_ts",
       "ref_next_env_d_ts",
@@ -187,7 +198,7 @@
       "tsconfig_include",
       "tsconfig_lib_exclude"
     ],
-    "6": [
+    "7": [
       "ref_src_components_ts",
       "ref_src_components_tsx",
       "ref_src_index_ts",
@@ -203,7 +214,7 @@
       "tsconfig_lib_extends",
       "tsconfig_lib_include"
     ],
-    "7": [
+    "8": [
       "next",
       "package_devdependencies_next",
       "package_devdependencies_react_dom",
@@ -216,7 +227,7 @@
       "react_dom",
       "sass"
     ],
-    "8": [
+    "9": [
       "package_scripts",
       "package_scripts_build",
       "package_scripts_build_lib",
@@ -227,17 +238,6 @@
       "package_scripts_start",
       "package_scripts_test",
       "package_scripts_test_watch"
-    ],
-    "9": [
-      "package_keywords",
-      "ref_animated",
-      "ref_navbar",
-      "ref_navigation",
-      "ref_nextjs",
-      "ref_notch",
-      "ref_sidebar",
-      "ref_svg",
-      "ref_tabbar"
     ],
     "10": [
       "scripts_capture_demo",
@@ -305,15 +305,15 @@
   },
   "cohesion": {
     "0": 0.05121951219512195,
-    "1": 0.09487179487179487,
-    "2": 0.08097165991902834,
+    "1": 0.0858974358974359,
+    "2": 0.1330049261083744,
     "3": 0.09090909090909091,
     "4": 0.10526315789473684,
-    "5": 0.14285714285714285,
+    "5": 0.10526315789473684,
     "6": 0.14285714285714285,
-    "7": 0.18181818181818182,
-    "8": 0.2,
-    "9": 0.2222222222222222,
+    "7": 0.14285714285714285,
+    "8": 0.18181818181818182,
+    "9": 0.2,
     "10": 0.3055555555555556,
     "11": 0.3333333333333333,
     "12": 0.4,
@@ -332,6 +332,11 @@
       "degree": 16
     },
     {
+      "id": "src_components_notch_navbar_notch_navbar_notchnavbar",
+      "label": "NotchNavbar()",
+      "degree": 13
+    },
+    {
       "id": "src_lib_notch_types_notchtab",
       "label": "NotchTab",
       "degree": 12
@@ -347,14 +352,14 @@
       "degree": 10
     },
     {
-      "id": "react",
-      "label": "react",
-      "degree": 8
-    },
-    {
       "id": "tsconfig_include",
       "label": "include",
       "degree": 7
+    },
+    {
+      "id": "react",
+      "label": "react",
+      "degree": 6
     },
     {
       "id": "tsconfig_lib_include",
@@ -362,14 +367,9 @@
       "degree": 6
     },
     {
-      "id": "src_components_notch_navbar_notch_navbar_notchnavbar",
-      "label": "NotchNavbar()",
-      "degree": 6
-    },
-    {
       "id": "src_lib_notch_paths_barpathv",
       "label": "barPathV()",
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "tsconfig_lib_compileroptions",
@@ -410,6 +410,28 @@
       "confidence": "EXTRACTED",
       "relation": "references",
       "why": "peripheral node `NotchTabItemProps` unexpectedly reaches hub `NotchTab`"
+    },
+    {
+      "source": "NotchNavbar()",
+      "target": "barPathH()",
+      "source_files": [
+        "src/components/notch-navbar/notch-navbar.tsx",
+        "src/lib/notch/paths.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "NotchNavbar()",
+      "target": "barPathV()",
+      "source_files": [
+        "src/components/notch-navbar/notch-navbar.tsx",
+        "src/lib/notch/paths.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
     }
   ],
   "tokens": {

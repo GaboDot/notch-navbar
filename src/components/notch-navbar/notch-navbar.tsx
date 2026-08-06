@@ -63,7 +63,6 @@ export function NotchNavbar({
   containerHeight,
   containerBottomSpace = 0,
   className,
-  tabSize,
   dir = 'ltr',
   showLabels = false,
   topSpace = 0,
@@ -190,18 +189,7 @@ export function NotchNavbar({
 
   const computePositions = useCallback(
     (size: number): number[] => {
-      let positions: number[];
-      if (tabSize) {
-        const count = barTabs.length;
-        const totalTabs = count * tabSize;
-        const gap = count > 1 ? (size - 2 * PAD - totalTabs) / (count - 1) : 0;
-        positions = [];
-        for (let i = 0; i < count; i++) {
-          positions.push(PAD + tabSize * (i + 0.5) + gap * i);
-        }
-      } else {
-        positions = getTabPositions(barTabs.length, size, PAD);
-      }
+      let positions = getTabPositions(barTabs.length, size, PAD);
 
       // RTL: mirror horizontal positions (first tab → right side)
       if (isRTL && isHorizontal) {
@@ -210,7 +198,7 @@ export function NotchNavbar({
 
       return positions;
     },
-    [tabSize, barTabs.length, isRTL, isHorizontal],
+    [barTabs.length, isRTL, isHorizontal],
   );
 
   /* ── Render path + circle (uses effective values) ──────────────── */
@@ -833,7 +821,6 @@ export function NotchNavbar({
               showLabel={showLabels}
               ariaSelected={isMore ? moreSelected : i === activeIndex && !moreActive}
               moreLabel={moreLabel}
-              tabSize={tabSize}
               tabRef={(el) => {
                 tabRefs.current[i] = el;
               }}

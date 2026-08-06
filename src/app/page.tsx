@@ -107,7 +107,6 @@ export default function PlaygroundPage() {
   const [cornerRadius, setCornerRadius] = useState(CORNER_RADIUS);
   const [transitionSpeed, setTransitionSpeed] = useState(DURATION_DEFAULT);
   const [tabCount, setTabCount] = useState(5);
-  const [tabSize, setTabSize] = useState(0);
   const [activeTabName, setActiveTabName] = useState('Home');
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -145,7 +144,6 @@ export default function PlaygroundPage() {
           cornerRadius={cornerRadius}
           notchGap={notchGap}
           transitionSpeed={transitionSpeed}
-          tabSize={tabSize || undefined}
           containerBottomSpace={0}
           onTabChange={handleTabChange}
         />
@@ -170,7 +168,6 @@ export default function PlaygroundPage() {
           cornerRadius={cornerRadius}
           notchGap={notchGap}
           transitionSpeed={transitionSpeed}
-          tabSize={tabSize || undefined}
           onTabChange={handleTabChange}
         />
         <div className={styles.sidebarAppArea}>
@@ -349,22 +346,6 @@ export default function PlaygroundPage() {
                 setActiveTabName(ICON_POOL[0].name);
                 setActiveTabIndex(0);
               }}
-            />
-          </div>
-
-          <div className={styles.controlGroup}>
-            <span className={styles.controlLabel}>
-              Tab Size{orientation === 'vertical' ? ' (vertical)' : ''}
-              <span className={styles.controlValue}>{tabSize === 0 ? 'auto' : `${tabSize}px`}</span>
-            </span>
-            <input
-              type="range"
-              className={styles.slider}
-              min={0}
-              max={60}
-              step={1}
-              value={tabSize}
-              onChange={(e) => setTabSize(Number(e.target.value))}
             />
           </div>
 

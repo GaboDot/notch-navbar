@@ -120,7 +120,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 | `containerWidth` | `number \| undefined` | `undefined` | Fixed width in px for horizontal mode. Omit for fluid width via `ResizeObserver`. |
 | `containerHeight` | `number \| undefined` | `undefined` | Fixed height in px for vertical mode. Omit for fluid height via `ResizeObserver`. |
 | `containerBottomSpace` | `number` | `0` | Bottom inset in px for horizontal mode (safe area offset). |
-| `tabSize` | `number \| undefined` | `undefined` | Fixed tab slot size in px. When set, each tab occupies exactly this width/height with equal gaps. When omitted, tabs fill the bar evenly (`flex: 1`). |
 | `dir` | `'ltr' \| 'rtl'` | `'ltr'` | Text direction. `'rtl'` mirrors the layout: horizontal tabs render reversed (first tab on the right) with inverted arrow keys; vertical sidebar moves to the **right** edge with the notch on its **left** (inner) edge. Icon mirroring is **not** handled — flip icons via CSS `transform: scaleX(-1)` or pre-flipped SVGs. |
 | `showLabels` | `boolean` | `false` | When `true`, each inactive tab shows its `name` below the icon inside the bar (10px, inactive icon color at 70% opacity, centered). Applies to horizontal and vertical; the "More" tab never shows a label (its overflow card always lists names). |
 | `topSpace` | `number` | `0` | Top inset in px for the **vertical** sidebar only. Clears the device status bar / Dynamic Island. Ignored in horizontal mode. |
@@ -190,10 +189,6 @@ Side sidebar. The notch cutout is on the **right edge** (internal side). The cir
 ```
 
 SVG geometry: `barPathV` → rounded rect with `evenodd` cutout on right. `bevelPathV` → right-edge stroke with cutout. The `x → SW - x` mirror ensures the cutout always faces inward.
-
-### tabSize (vertical compact mode)
-
-For vertical sidebars, `tabSize` lets you constrain each tab slot to a fixed pixel size instead of filling the sidebar height evenly. Useful for sidebars with few tabs that shouldn't spread across the full height.
 
 ## RTL — `dir="rtl"`
 
@@ -375,7 +370,7 @@ The playground renders both horizontal (phone frame) and vertical (tablet frame)
 - **Orientation** — toggle between horizontal and vertical
 - **Colors** — active icon, inactive icon, circle fill, bar background (color pickers)
 - **Geometry** — notch gap (4–14px), corner radius (0–20px)
-- **Behavior** — transition speed (200–600ms), tab count (3/4/5), vertical tab size
+- **Behavior** — transition speed (200–600ms), tab count (3/4/5)
 - **Active tab indicator** — shows which tab is currently selected
 
 ## Technical Notes

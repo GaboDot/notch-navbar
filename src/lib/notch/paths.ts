@@ -450,7 +450,7 @@ export function bevelPathVRTL(ty: number, opts: BevelVRTLOpts): string {
  * Formula: pad + (size - 2*pad) / count * (i + 0.5)
  *
  * Horizontal: size=barWidth, pad=PAD(8)
- * Vertical:   size=barHeight, pad=custom (or use fixed tab layout in component)
+ * Vertical:   size=barHeight, pad=custom
  *
  * @param count - number of tabs
  * @param size  - total available dimension (width or height)

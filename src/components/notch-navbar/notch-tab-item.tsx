@@ -16,7 +16,6 @@ interface NotchTabItemProps {
   /** ARIA selected state — for More tab this may differ from isActive */
   ariaSelected: boolean;
   moreLabel: string;
-  tabSize?: number;
   /** Ref callback to register this tab button */
   tabRef: (el: HTMLButtonElement | null) => void;
   onClick: () => void;
@@ -36,7 +35,6 @@ export function NotchTabItem({
   showLabel,
   ariaSelected,
   moreLabel,
-  tabSize,
   tabRef,
   onClick,
   onKeyDown,
@@ -74,7 +72,7 @@ export function NotchTabItem({
       key={isMore ? '__notch_more__' : tab.name}
       role="none"
       className={styles.tabSlot}
-      style={tabSize != null ? { width: tabSize, height: tabSize } : { flex: 1 }}
+      style={{ flex: 1 }}
     >
       {!isMore && tab.href ? (
         <Link
