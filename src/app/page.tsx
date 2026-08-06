@@ -374,7 +374,7 @@ export default function PlaygroundPage() {
           <div className={styles.activeLog}>
             <span className={styles.activeLogDot} />
             Active: {activeTabName} (index {activeTabIndex})
-            {tabCount > 5 && activeTabIndex >= 5 && ' — via More card'}
+            {tabCount > 5 && activeTabIndex >= 4 && ' — via More card'}
           </div>
         </div>
 

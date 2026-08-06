@@ -76,12 +76,14 @@ export function NotchNavbar({
   /* ── Overflow logic ──────────────────────────────────────────────── */
 
   const hasMore = tabs.length > maxVisible;
+  // With overflow: (maxVisible-1) real tabs + More button = maxVisible slots total.
+  // More occupies the last slot (index maxVisible-1). Bar never resizes.
   const visibleTabs = useMemo(
-    () => (hasMore ? tabs.slice(0, maxVisible) : tabs),
+    () => (hasMore ? tabs.slice(0, maxVisible - 1) : tabs),
     [tabs, hasMore, maxVisible],
   );
   const hiddenTabs = useMemo(
-    () => (hasMore ? tabs.slice(maxVisible) : []),
+    () => (hasMore ? tabs.slice(maxVisible - 1) : []),
     [tabs, hasMore, maxVisible],
   );
   const barTabs: NotchTab[] = useMemo(
@@ -164,13 +166,15 @@ export function NotchNavbar({
 
   /* ── Determine visible bar index for notch position ────────────── */
 
+  const moreSlotIndex = maxVisible - 1;
+
   const getBarIndex = useCallback(
     (realIndex: number): number => {
       if (!hasMore) return realIndex;
-      if (realIndex < maxVisible) return realIndex;
-      return maxVisible;
+      if (realIndex < moreSlotIndex) return realIndex;
+      return moreSlotIndex;
     },
-    [hasMore, maxVisible],
+    [hasMore, moreSlotIndex],
   );
 
   /* ── Tab positions ────────────────────────────────────────────── */
@@ -296,8 +300,7 @@ export function NotchNavbar({
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setCardOpen(false);
-        const moreIdx = maxVisible;
-        tabRefs.current[moreIdx]?.focus();
+        tabRefs.current[moreSlotIndex]?.focus();
       }
     };
 
@@ -308,19 +311,19 @@ export function NotchNavbar({
       document.removeEventListener('pointerdown', handleOutside);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [cardOpen, maxVisible]);
+  }, [cardOpen, moreSlotIndex]);
 
   /* ── Focus card on open ───────────────────────────────────────── */
 
   useEffect(() => {
     if (cardOpen && cardRef.current) {
-      const idx = hiddenActiveIndex != null ? hiddenActiveIndex - maxVisible : 0;
+      const idx = hiddenActiveIndex != null ? hiddenActiveIndex - moreSlotIndex : 0;
       setCardFocusIdx(idx);
       requestAnimationFrame(() => {
         cardItemRefs.current[idx]?.focus();
       });
     }
-  }, [cardOpen, hiddenActiveIndex, maxVisible]);
+  }, [cardOpen, hiddenActiveIndex, moreSlotIndex]);
 
   /* ── Switch tab with rAF animation ────────────────────────────── */
 
@@ -405,12 +408,12 @@ export function NotchNavbar({
 
   const handleHiddenTabClick = useCallback(
     (hiddenIdx: number) => {
-      const realIdx = maxVisible + hiddenIdx;
+      const realIdx = moreSlotIndex + hiddenIdx;
       setCardOpen(false);
       switchTab(realIdx);
-      tabRefs.current[maxVisible]?.focus();
+      tabRefs.current[moreSlotIndex]?.focus();
     },
-    [maxVisible, switchTab],
+    [moreSlotIndex, switchTab],
   );
 
   /* ── Card keyboard navigation ─────────────────────────────────── */
@@ -459,7 +462,7 @@ export function NotchNavbar({
           else if (e.key === 'End') next = count - 1;
           else if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            if (hasMore && barIdx === maxVisible) {
+            if (hasMore && barIdx === moreSlotIndex) {
               setCardOpen((v) => !v);
             }
             return;
@@ -471,7 +474,7 @@ export function NotchNavbar({
           else if (e.key === 'End') next = count - 1;
           else if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            if (hasMore && barIdx === maxVisible) {
+            if (hasMore && barIdx === moreSlotIndex) {
               setCardOpen((v) => !v);
             }
             return;
@@ -484,7 +487,7 @@ export function NotchNavbar({
         else if (e.key === 'End') next = count - 1;
         else if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          if (hasMore && barIdx === maxVisible) {
+          if (hasMore && barIdx === moreSlotIndex) {
             setCardOpen((v) => !v);
           }
           return;
@@ -493,7 +496,7 @@ export function NotchNavbar({
 
       e.preventDefault();
 
-      if (hasMore && next === maxVisible) {
+      if (hasMore && next === moreSlotIndex) {
         tabRefs.current[next]?.focus();
         return;
       }
@@ -501,14 +504,14 @@ export function NotchNavbar({
       tabRefs.current[next]?.focus();
       switchTab(next);
     },
-    [barTabs.length, isHorizontal, isRTL, switchTab, getBarIndex, hasMore, maxVisible],
+    [barTabs.length, isHorizontal, isRTL, switchTab, getBarIndex, hasMore, moreSlotIndex],
   );
 
   /* ── Click handlers ───────────────────────────────────────────── */
 
   const handleTabClick = useCallback(
     (barIndex: number) => {
-      if (hasMore && barIndex === maxVisible) {
+      if (hasMore && barIndex === moreSlotIndex) {
         setCardOpen((v) => !v);
         tabRefs.current[barIndex]?.focus();
         return;
@@ -518,7 +521,7 @@ export function NotchNavbar({
       switchTab(barIndex);
       tabRefs.current[barIndex]?.focus();
     },
-    [switchTab, hasMore, maxVisible, cardOpen],
+    [switchTab, hasMore, moreSlotIndex, cardOpen],
   );
 
   /* ── More tab icon ────────────────────────────────────────────── */
@@ -690,7 +693,7 @@ export function NotchNavbar({
       {/* Tabs */}
       <ul className={tabsClass} role="tablist" style={tabsStyle}>
         {barTabs.map((tab, i) => {
-          const isMore = hasMore && i === maxVisible;
+          const isMore = hasMore && i === moreSlotIndex;
           const isActive = isMore
             ? hiddenActiveIndex != null
             : i === activeIndex;

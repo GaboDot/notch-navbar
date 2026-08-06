@@ -46,3 +46,6 @@ Specs/
 
 # Dev server log
 .dev-server.log
+
+# graphify cache (no versionar)
+/graphify-out/cache/

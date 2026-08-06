@@ -46,7 +46,7 @@ export function NotchCircle({
       }}
     >
       {barTabs.map((tab, i) => {
-        const isMore = hasMore && i === maxVisible;
+        const isMore = hasMore && i === maxVisible - 1;
         if (isMore) {
           const icon = hiddenActiveIndex != null
             ? (tabs[hiddenActiveIndex]?.activeIcon ?? moreIconElement)

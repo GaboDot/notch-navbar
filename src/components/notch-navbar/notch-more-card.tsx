@@ -43,7 +43,7 @@ export function NotchMoreCard({
       onKeyDown={onKeyDown}
     >
       {hiddenTabs.map((tab, i) => {
-        const realIdx = maxVisible + i;
+        const realIdx = (maxVisible - 1) + i;
         const isActive = realIdx === activeIndex;
         return (
           <button

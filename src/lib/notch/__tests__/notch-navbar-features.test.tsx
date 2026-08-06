@@ -223,7 +223,7 @@ describe('NotchNavbar — tab labels (showLabels)', () => {
     );
 
     const tabButtons = screen.getAllByRole('tab');
-    const moreTab = tabButtons[5];
+    const moreTab = tabButtons[4];
     expect(moreTab).toHaveAttribute('aria-label', 'More');
     // More button has no visible label text (icon only)
     expect(within(moreTab).queryByText('More')).not.toBeInTheDocument();
