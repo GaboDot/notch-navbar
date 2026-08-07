@@ -10,12 +10,12 @@
   "status": "completed",
   "resume_step": null,
   "published": {
-    "npm": "notch-navbar@0.3.0",
+    "npm": "notch-navbar@0.3.2",
     "npm_url": "https://www.npmjs.com/package/notch-navbar",
     "github": "https://github.com/GaboDot/notch-navbar",
-    "published_at": "2026-08-06T18:10:00Z",
+    "published_at": "2026-08-07T00:46:03-06:00",
     "ci_validated": true,
-    "ci_run": "CI master v0.3.0 success (tests+lint+tsc+build en GitHub). Publish workflow cancelado 2x por runners publicos saturados ('job not acquired by Runner of type hosted'). Paquete publicado MANUALMENTE desde local con token granular 2FA-bypass.",
+    "ci_run": "CI + Publish to npm v0.3.2 success en GitHub Actions (tests+lint+tsc+build+build:lib+publish). Release GitHub v0.3.2 creado.",
     "auth_notes": "npm 2FA moderno solo ofrece Security Key (passkey, sin TOTP). Tokens granulares Read&Write con 'Automatically bypass 2FA for publish' habilitado. Token sin bypass pide OTP (imposible generar). Token activo guardado en .npmrc local + secret GitHub NPM_TOKEN (no versionado — push protection bloquea tokens en git). Se rotaron/revocaron 4 tokens previos (por expuestos en chat o sin 2FA bypass); los literales NO se versionan por política de push protection."
   },
   "graphify": {
@@ -83,7 +83,7 @@
         "src/lib/notch/__tests__/notch-navbar-controlled.test.tsx"
       ],
       "doubts": [],
-      "notes": "Opción 3: activeIndex controlado opcional. Modo no controlado conserva defaultActiveTabIndex y comportamiento existente. Modo controlado deriva índice del prop, notifica clics vía onTabChange y anima cambios externos (navegación/back-forward) sin remount. Se evitó doble animación: switchTab solo notifica en modo controlado; un effect dedicado anima tras cambio real del prop. 29 tests nuevos; suite 148/148, tsc, lint y build OK. Pendiente release minor y actualización SIGU."
+      "notes": "Opción 3: activeIndex controlado opcional. Modo no controlado conserva defaultActiveTabIndex y comportamiento existente. Modo controlado deriva índice del prop, notifica clics vía onTabChange y anima cambios externos (navegación/back-forward) sin remount. Se evitó doble animación: switchTab solo notifica en modo controlado; un effect dedicado anima tras cambio real del prop. 29 tests nuevos; suite 148/148, tsc, lint y build OK. Publicado v0.3.2 mediante GitHub Actions; CI y Publish success. Release GitHub creado. Pendiente actualizar integración SIGU."
     }
   ]
 }
