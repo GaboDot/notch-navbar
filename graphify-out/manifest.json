@@ -10,14 +10,14 @@
     "semantic_hash": "073c476be067d6d4649b355483ee2690"
   },
   "package.json": {
-    "mtime": 1785634314.3569434,
-    "ast_hash": "55a7c08c3458da1942d90b53e0b12f49",
-    "semantic_hash": "55a7c08c3458da1942d90b53e0b12f49"
+    "mtime": 1786079577.625275,
+    "ast_hash": "1444a64aff53de3a1660bfc0c38d3e07",
+    "semantic_hash": "1444a64aff53de3a1660bfc0c38d3e07"
   },
   "project-log.json": {
-    "mtime": 1786037221.449678,
-    "ast_hash": "8ac9419002c68dfb5c18acaaa15210a9",
-    "semantic_hash": "8ac9419002c68dfb5c18acaaa15210a9"
+    "mtime": 1786040164.779698,
+    "ast_hash": "dbb8f39eb2e5f018f8dc9ff3a0017890",
+    "semantic_hash": "dbb8f39eb2e5f018f8dc9ff3a0017890"
   },
   "src/app/layout.tsx": {
     "mtime": 1785618828.5404608,
@@ -30,9 +30,9 @@
     "semantic_hash": "b51786131495b58921cccc74ef80370a"
   },
   "src/components/notch-navbar/notch-navbar.tsx": {
-    "mtime": 1786037546.7287915,
-    "ast_hash": "f2fa92d89f3daaa2721f01032da5854d",
-    "semantic_hash": "f2fa92d89f3daaa2721f01032da5854d"
+    "mtime": 1786084491.9908988,
+    "ast_hash": "5158b6a529cd7fa9ca4d3e22f48f76f3",
+    "semantic_hash": "5158b6a529cd7fa9ca4d3e22f48f76f3"
   },
   "src/lib/notch/__tests__/constants.test.ts": {
     "mtime": 1785620491.7193978,
@@ -55,14 +55,14 @@
     "semantic_hash": "cd136c6066bde39b3811694efc50f614"
   },
   "src/lib/notch/paths.ts": {
-    "mtime": 1786037135.5900435,
-    "ast_hash": "a6c6e38900663790c4a9e33b8fea6d7a",
-    "semantic_hash": "a6c6e38900663790c4a9e33b8fea6d7a"
+    "mtime": 1786079377.4842114,
+    "ast_hash": "bf791136dfe2093b4c92b242e665c07d",
+    "semantic_hash": "bf791136dfe2093b4c92b242e665c07d"
   },
   "src/lib/notch/types.ts": {
-    "mtime": 1786037116.31522,
-    "ast_hash": "8d82b1a429914f7b272809af3168bc00",
-    "semantic_hash": "8d82b1a429914f7b272809af3168bc00"
+    "mtime": 1786084040.8112252,
+    "ast_hash": "f40cffd01b2726698c703d705e3a7180",
+    "semantic_hash": "f40cffd01b2726698c703d705e3a7180"
   },
   "src/test/setup.ts": {
     "mtime": 1785620474.1143599,
@@ -158,5 +158,15 @@
     "mtime": 1786037557.9286718,
     "ast_hash": "2962310a4cdf34c52673f05b4ec21a81",
     "semantic_hash": "2962310a4cdf34c52673f05b4ec21a81"
+  },
+  "src/lib/notch/__tests__/nan-guard.test.ts": {
+    "mtime": 1786081233.3318746,
+    "ast_hash": "e58de8f6910e793a46f52f39642eab87",
+    "semantic_hash": "e58de8f6910e793a46f52f39642eab87"
+  },
+  "src/lib/notch/__tests__/notch-navbar-controlled.test.tsx": {
+    "mtime": 1786084670.3481078,
+    "ast_hash": "4eb336843770c0381bd1961f9f319ced",
+    "semantic_hash": "4eb336843770c0381bd1961f9f319ced"
   }
 }
