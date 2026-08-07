@@ -54,8 +54,24 @@ export interface NotchNavbarProps {
   // --- Behavior ---
   /** Transition duration in ms. Default 350 */
   transitionSpeed?: number;
-  /** Initially active tab index. Default 0 */
+  /** Initially active tab index (uncontrolled mode). Default 0 */
   defaultActiveTabIndex?: number;
+  /**
+   * Controlled active tab index.
+   *
+   * - **Absent** (default): component is *uncontrolled*. The internal state
+   *   starts at `defaultActiveTabIndex` and every click/keyboard activation
+   *   updates it directly. `onTabChange` is a notification only.
+   *
+   * - **Present**: component is *controlled*. The active tab is derived from
+   *   this prop. Clicking a tab calls `onTabChange` — the parent is expected
+   *   to update `activeIndex` in response. The notch animates when the prop
+   *   changes (e.g. browser back/forward, external navigation) without
+   *   requiring a remount.
+   *
+   * If the value is out of range it is clamped to `[0, tabs.length - 1]`.
+   */
+  activeIndex?: number;
   /** Fixed width (horizontal). Omit for fluid + ResizeObserver */
   containerWidth?: number;
   /** Fixed height (vertical). Omit for fluid + ResizeObserver */

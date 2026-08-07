@@ -59,6 +59,7 @@ export function NotchNavbar({
   barSize = BAR_SIZE_DEFAULT,
   transitionSpeed = DURATION_DEFAULT,
   defaultActiveTabIndex = 0,
+  activeIndex: controlledActiveIndex,
   containerWidth,
   containerHeight,
   containerBottomSpace = 0,
@@ -68,6 +69,10 @@ export function NotchNavbar({
   topSpace = 0,
   bottomSpace = 0,
 }: NotchNavbarProps) {
+  const isControlled = controlledActiveIndex !== undefined;
+  const clampedControlledIndex = isControlled
+    ? Math.min(Math.max(controlledActiveIndex, 0), tabs.length - 1)
+    : 0;
   const isHorizontal = orientation === 'horizontal';
   const isRTL = dir === 'rtl';
   const circleR = circleSize / 2;
@@ -108,8 +113,10 @@ export function NotchNavbar({
 
   const [containerW, setContainerW] = useState(containerWidth ?? 390);
   const [containerH, setContainerH] = useState(containerHeight ?? barSize);
-  const [activeIndex, setActiveIndex] = useState(
-    Math.min(defaultActiveTabIndex, tabs.length - 1),
+  const [activeTabIndex, setActiveTabIndex] = useState(
+    isControlled
+      ? clampedControlledIndex
+      : Math.min(defaultActiveTabIndex, tabs.length - 1),
   );
   const [hiddenActiveIndex, setHiddenActiveIndex] = useState<number | null>(null);
   const [cardOpen, setCardOpen] = useState(false);
@@ -120,15 +127,15 @@ export function NotchNavbar({
 
   const animatingRef = useRef(false);
   const currentPosRef = useRef(0);
-  const activeIndexRef = useRef(activeIndex);
+  const activeIndexRef = useRef(activeTabIndex);
   const hiddenActiveRef = useRef(hiddenActiveIndex);
   const cardOpenRef = useRef(cardOpen);
   const moreActiveRef = useRef(moreActive);
   const prevActiveBarIdxRef = useRef(0);
 
   useLayoutEffect(() => {
-    activeIndexRef.current = activeIndex;
-  }, [activeIndex]);
+    activeIndexRef.current = activeTabIndex;
+  }, [activeTabIndex]);
 
   useLayoutEffect(() => {
     hiddenActiveRef.current = hiddenActiveIndex;
@@ -396,6 +403,85 @@ export function NotchNavbar({
     }
   }, [cardOpen, moreActive, moveNotchTo]);
 
+  /* ── Controlled mode: animate notch when activeIndex prop changes ─ */
+
+  const prevControlledIdxRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!isControlled) return;
+    const newIdx = clampedControlledIndex;
+
+    // Skip on first render (init handles it) or if index hasn't changed
+    if (prevControlledIdxRef.current === newIdx) return;
+    prevControlledIdxRef.current = newIdx;
+
+    const barIdx = getBarIndex(newIdx);
+    const targetPos = tabPositionsRef.current[barIdx];
+    if (targetPos === undefined) return;
+
+    // Update ARIA on bar buttons
+    const prevBarIdx =
+      moreActiveRef.current || hiddenActiveRef.current != null
+        ? moreSlotIndex
+        : getBarIndex(activeIndexRef.current);
+    const prevBtn = tabRefs.current[prevBarIdx];
+    if (prevBtn && prevBarIdx !== barIdx) {
+      prevBtn.setAttribute('aria-selected', 'false');
+      prevBtn.setAttribute('tabindex', '-1');
+    }
+    const nextBtn = tabRefs.current[barIdx];
+    if (nextBtn) {
+      nextBtn.setAttribute('aria-selected', 'true');
+      nextBtn.setAttribute('tabindex', '0');
+    }
+
+    // Sync internal state and refs
+    activeIndexRef.current = newIdx;
+    setActiveTabIndex(newIdx);
+
+    const isHidden = hasMore && newIdx >= maxVisible;
+    hiddenActiveRef.current = isHidden ? newIdx : null;
+    setHiddenActiveIndex(isHidden ? newIdx : null);
+    moreActiveRef.current = false;
+    setMoreActive(false);
+
+    // Close card if open (parent changed index externally)
+    if (cardOpenRef.current) {
+      setCardOpen(false);
+    }
+
+    // Animate notch
+    const fromPos = currentPosRef.current;
+    if (fromPos === targetPos) return;
+
+    if (reducedMotionRef.current) {
+      currentPosRef.current = targetPos;
+      render(targetPos);
+      return;
+    }
+
+    const duration = transitionSpeed;
+    let startTime: number | null = null;
+
+    const animate = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const t = Math.min((ts - startTime) / duration, 1);
+      const eased = easeExpoOut(t);
+      const pos = fromPos + (targetPos - fromPos) * eased;
+      currentPosRef.current = pos;
+      render(pos);
+
+      if (t < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        currentPosRef.current = targetPos;
+      }
+    };
+
+    requestAnimationFrame(animate);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isControlled, clampedControlledIndex]);
+
   /* ── Switch tab with rAF animation ────────────────────────────── */
 
   const switchTab = useCallback(
@@ -404,14 +490,18 @@ export function NotchNavbar({
       if (newBarIdx === getBarIndex(activeIndexRef.current) && newRealIndex === activeIndexRef.current) return;
       if (animatingRef.current) return;
 
-      animatingRef.current = true;
-      const fromPos = currentPosRef.current;
-      const toPos = tabPositionsRef.current[newBarIdx];
-      if (toPos === undefined) {
-        animatingRef.current = false;
+      if (isControlled) {
+        // Controlled: update hidden/more refs (prevents revert-on-card-close)
+        // and notify parent. No ARIA mutation, no animation — the
+        // activeIndex prop effect drives everything.
+        const isHidden = hasMore && newRealIndex >= maxVisible;
+        hiddenActiveRef.current = isHidden ? newRealIndex : null;
+        moreActiveRef.current = false;
+        stableOnTabChange?.(tabs[newRealIndex], newRealIndex);
         return;
       }
 
+      // Uncontrolled: full local update + animation.
       const oldBarIdx = getBarIndex(activeIndexRef.current);
       const oldTab = tabRefs.current[oldBarIdx];
       if (oldTab) {
@@ -426,7 +516,7 @@ export function NotchNavbar({
       }
 
       activeIndexRef.current = newRealIndex;
-      setActiveIndex(newRealIndex);
+      setActiveTabIndex(newRealIndex);
 
       const isHidden = hasMore && newRealIndex >= maxVisible;
       hiddenActiveRef.current = isHidden ? newRealIndex : null;
@@ -435,6 +525,12 @@ export function NotchNavbar({
       setMoreActive(false);
 
       stableOnTabChange?.(tabs[newRealIndex], newRealIndex);
+
+      const fromPos = currentPosRef.current;
+      const toPos = tabPositionsRef.current[newBarIdx];
+      if (toPos === undefined) return;
+
+      animatingRef.current = true;
 
       if (reducedMotionRef.current) {
         currentPosRef.current = toPos;
@@ -464,7 +560,7 @@ export function NotchNavbar({
 
       requestAnimationFrame(animate);
     },
-    [tabs, transitionSpeed, render, stableOnTabChange, getBarIndex, hasMore, maxVisible],
+    [tabs, transitionSpeed, render, stableOnTabChange, getBarIndex, hasMore, maxVisible, isControlled],
   );
 
   /* ── Pointer press (circle scale) ─────────────────────────────── */
@@ -809,7 +905,7 @@ export function NotchNavbar({
           const moreSelected = moreActive || hiddenActiveIndex != null;
           const isActive = isMore
             ? moreSelected
-            : i === activeIndex && !moreActive;
+            : i === activeTabIndex && !moreActive;
 
           return (
             <NotchTabItem
@@ -819,7 +915,7 @@ export function NotchNavbar({
               isMore={isMore}
               moreBarIcon={moreBarIcon}
               showLabel={showLabels}
-              ariaSelected={isMore ? moreSelected : i === activeIndex && !moreActive}
+              ariaSelected={isMore ? moreSelected : i === activeTabIndex && !moreActive}
               moreLabel={moreLabel}
               tabRef={(el) => {
                 tabRefs.current[i] = el;
@@ -843,7 +939,7 @@ export function NotchNavbar({
         offset={circleOffset}
         willChange={isHorizontal ? 'left' : 'top'}
         barTabs={barTabs}
-        activeIndex={activeIndex}
+        activeIndex={activeTabIndex}
         hiddenActiveIndex={hiddenActiveIndex}
         moreActive={moreActive}
         hasMore={hasMore}
@@ -857,7 +953,7 @@ export function NotchNavbar({
         <NotchMoreCard
           cardRef={cardRef}
           hiddenTabs={hiddenTabs}
-          activeIndex={activeIndex}
+          activeIndex={activeTabIndex}
           maxVisible={maxVisible}
           cardFocusIdx={cardFocusIdx}
           activeIconColor={activeIconColor}
