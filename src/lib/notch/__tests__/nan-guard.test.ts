@@ -9,7 +9,7 @@ describe('NaN guard regression (yc > rc)', () => {
     barPathVRTL(100, { SH: 400, SW: 62, rc: 30, yc: 40 }),
     bevelPathH(100, { W: 300, rc: 30, yc: 40 }),
     bevelPathV(100, { SH: 400, SW: 62, rc: 30, yc: 40 }),
-    bevelPathVRTL(100, { SH: 400, rc: 30, yc: 40 }),
+    bevelPathVRTL(100, { SH: 400, SW: 62, rc: 30, yc: 40 }),
   ];
 
   it('no emite NaN en ningun path', () => {
