@@ -39,11 +39,11 @@ function cutoutH(
   rtr: number,
 ): string {
   // Half-width of cutout mouth (clamped so it doesn't enter rounded corners)
-  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw0 = Math.sqrt(Math.max(0, rc * rc - yc * yc));
   const hw = Math.min(hw0, cx - rtl, W - rtr - cx);
 
   // Fillet angle: alpha = angle where arc crosses y=0, phi adds 4° for fillet
-  const alpha = Math.asin(yc / rc);
+  const alpha = Math.asin(Math.max(-1, Math.min(1, yc / rc)));
   const phi = alpha + (4 * Math.PI) / 180;
   const s = Math.sin(phi);
   const c = Math.cos(phi);
@@ -100,10 +100,10 @@ function cutoutV(
   rtr: number,
   rbr: number,
 ): string {
-  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw0 = Math.sqrt(Math.max(0, rc * rc - yc * yc));
   const hw = Math.min(hw0, ty - rtr, SH - rbr - ty);
 
-  const alpha = Math.asin(yc / rc);
+  const alpha = Math.asin(Math.max(-1, Math.min(1, yc / rc)));
   const phi = alpha + (4 * Math.PI) / 180;
   const s = Math.sin(phi);
   const c = Math.cos(phi);
@@ -228,7 +228,7 @@ export function barPathH(cx: number, opts: BarHOpts): string {
 export function bevelPathH(cx: number, opts: BevelHOpts): string {
   const { W, rc, yc, r = CORNER_RADIUS } = opts;
 
-  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw0 = Math.sqrt(Math.max(0, rc * rc - yc * yc));
   const hw = Math.min(hw0, cx - r, W - r - cx);
   const cutout = cutoutH(cx, W, rc, yc, r, r);
 
@@ -283,11 +283,11 @@ export function barPathV(ty: number, opts: BarVOpts): string {
 export function bevelPathV(ty: number, opts: BevelVOpts): string {
   const { SH, SW, rc, yc, r = CORNER_RADIUS } = opts;
 
-  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw0 = Math.sqrt(Math.max(0, rc * rc - yc * yc));
   const hw = Math.min(hw0, ty - r, SH - r - ty);
 
   // Inline cutout geometry (same as cutoutV)
-  const alpha = Math.asin(yc / rc);
+  const alpha = Math.asin(Math.max(-1, Math.min(1, yc / rc)));
   const phi = alpha + (4 * Math.PI) / 180;
   const s = Math.sin(phi);
   const c = Math.cos(phi);
@@ -329,10 +329,10 @@ function cutoutVRTL(
   rtl: number,
   rbl: number,
 ): string {
-  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw0 = Math.sqrt(Math.max(0, rc * rc - yc * yc));
   const hw = Math.min(hw0, ty - rtl, SH - rbl - ty);
 
-  const alpha = Math.asin(yc / rc);
+  const alpha = Math.asin(Math.max(-1, Math.min(1, yc / rc)));
   const phi = alpha + (4 * Math.PI) / 180;
   const s = Math.sin(phi);
   const c = Math.cos(phi);
@@ -416,10 +416,10 @@ export function barPathVRTL(ty: number, opts: BarVRTLOpts): string {
 export function bevelPathVRTL(ty: number, opts: BevelVRTLOpts): string {
   const { SH, rc, yc, r = CORNER_RADIUS } = opts;
 
-  const hw0 = Math.sqrt(rc * rc - yc * yc);
+  const hw0 = Math.sqrt(Math.max(0, rc * rc - yc * yc));
   const hw = Math.min(hw0, ty - r, SH - r - ty);
 
-  const alpha = Math.asin(yc / rc);
+  const alpha = Math.asin(Math.max(-1, Math.min(1, yc / rc)));
   const phi = alpha + (4 * Math.PI) / 180;
   const s = Math.sin(phi);
   const c = Math.cos(phi);
